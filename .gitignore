@@ -1,0 +1,17 @@
+# .gitignore
+
+# Ignore the entire mininet-wi-fi folder
+mininet-wifi/
+mac80211_hwsim_mgmt/
+wmediumd/
+openflow/
+containernet/
+
+# Or you can be more selective:
+# mininet-wifi/__pycache__/
+# mininet-wifi/logs/
+# etc.
+
+# If you want to ignore python bytecode
+__pycache__/
+*.pyc

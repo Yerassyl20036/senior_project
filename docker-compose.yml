@@ -1,0 +1,22 @@
+    version: '3.8'
+    services:
+      floodlight-controller:
+        image: piyushk2001/floodlight-controller
+        container_name: floodlight-controller
+        ports:
+          - "8080:8080"
+          - "6653:6653"
+        restart: unless-stopped 
+      # containernet:
+      #   image: containernet/containernet
+      #   container_name: containernet
+      #   privileged: true
+      #   network_mode: "host"
+      #   pid: "host"
+      #   volumes:
+      #     - /var/run/docker.sock:/var/run/docker.sock
+      #   ulimits:
+      #     nofile:
+      #       soft: 524288
+      #       hard: 524288
+      #   restart: unless-stopped
