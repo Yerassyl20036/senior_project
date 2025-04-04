@@ -104,53 +104,60 @@ if [ $? -ne 0 ]; then
   echo "[ERROR] Pulling Floodlight Docker image failed."
 fi
 
-# ------------------------------------------------------------------------------
-# 7) Mininet-WiFi
-# ------------------------------------------------------------------------------
-echo ""
-echo "===== STEP 6: Mininet-WiFi ====="
 
-# Instead of cloning into $HOME/mininet-wifi, clone locally in the current project dir.
-# We'll store the current script directory in a variable:
-# SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"   # e.g. /home/user/Desktop/sdnblockhain
+# 1) Figure out directory of this script
+# This ensures we always work relative to *this* file’s location
+# SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# MWIFI_DIR="${SCRIPT_DIR}/mininet-wifi"       # the local path for mininet-wifi
+# # 2) Define where to clone
+# MWIFI_DIR="$SCRIPT_DIR/mininet-wifi"
+# CONTAINERNET_DIR="$SCRIPT_DIR/containernet"
 
-# if [ -d "$MWIFI_DIR" ]; then
-#   echo "Mininet-WiFi directory already exists at: $MWIFI_DIR"
-#   echo "Skipping clone."
-# else
-#   echo "Cloning Mininet-WiFi repo into $MWIFI_DIR ..."
-#   git clone https://github.com/intrig-unicamp/mininet-wifi.git "$MWIFI_DIR"
-#   if [ $? -ne 0 ]; then
-#     echo "[ERROR] Cloning Mininet-WiFi repo failed."
-#     exit 1
-#   fi
-# fi
+# # ------------------------------------------------------------------------------
+# # 6) Mininet-WiFi
+# # ------------------------------------------------------------------------------
+# echo ""
+# echo "===== STEP 5: Mininet-WiFi ====="
 
-# cd "$MWIFI_DIR" || exit
-# echo "Installing Mininet-WiFi with 'sudo util/install.sh -Wlnfv'..."
-# sudo util/install.sh -Wlnfv
-# if [ $? -ne 0 ]; then
-#   echo "[ERROR] Mininet-WiFi installation failed."
-#   exit 1
-# fi
+# echo "Cloning Mininet-WiFi repo into $MWIFI_DIR ..."
+# git clone https://github.com/intrig-unicamp/mininet-wifi.git "$MWIFI_DIR"
 
-# # Step back to the project directory
-# cd "$SCRIPT_DIR" || exit
+# echo "Installing Mininet-WiFi (sudo util/install.sh -Wlnfv) ..."
+# cd "$MWIFI_DIR"
+# sudo ./util/install.sh -Wlnfv
+# cd "$SCRIPT_DIR"
+
 # echo "Done installing Mininet-WiFi locally at $MWIFI_DIR"
 
-# DO A MANUAL INSTALLATION OF MININET-WIFI WITH CONTAINERNET
+# # ------------------------------------------------------------------------------
+# # 7) Containernet
+# # ------------------------------------------------------------------------------
+# echo ""
+# echo "===== STEP 6: Containernet ====="
+
+# echo "Cloning Containernet repo into $CONTAINERNET_DIR ..."
+# git clone https://github.com/containernet/containernet.git "$CONTAINERNET_DIR"
+
+# echo "Installing Containernet (sudo ansible-playbook -i 'localhost,' -c local install.yml) ..."
+# cd "$CONTAINERNET_DIR"
+# sudo ansible-playbook -i "localhost," -c local ansible/install.yml
+# cd "$SCRIPT_DIR"
+
+# echo "Done installing Containernet locally at $CONTAINERNET_DIR"
+
 
 # ------------------------------------------------------------------------------
-# 8) Ganache (via NPM)
+# 7) Ganache (via NPM)
 # ------------------------------------------------------------------------------
 echo ""
 echo "===== STEP 7: Ganache (via NPM) ====="
 echo "Installing Ganache globally with npm..."
 sudo npm install --global ganache
 sudo npm install --global truffle
+sudo pip install web3
 pip install web3
+sudo pip install networkx
+pip install networkx
 if [ $? -ne 0 ]; then
   echo "[ERROR] Ganache installation failed."
 fi

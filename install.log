@@ -1142,3 +1142,1847 @@ Apply anyway? [n]
 Skipping patch.
 1 out of 1 hunk ignored -- saving rejects to file wpa_supplicant/p2p_supplicant.c.rej
 [ERROR] Mininet-WiFi installation failed.
+===== Starting installation at Жм 04 Сәу 2025 21:59:10 +05 =====
+
+===== STEP 1: System Update and Dependencies =====
+Hit:1 https://download.docker.com/linux/ubuntu jammy InRelease
+Hit:2 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:3 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Get:4 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:5 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:6 https://deb.torproject.org/torproject.org noble InRelease
+Hit:7 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:8 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Fetched 2 957 B in 1s (2 034 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages have been kept back:
+  tor tor-geoipdb
+The following packages will be upgraded:
+  libnss-systemd libpam-systemd libsystemd0 libsystemd0:i386 libudev-dev
+  libudev1 libudev1:i386 systemd systemd-oomd systemd-sysv systemd-timesyncd
+  udev
+12 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Need to get 7 385 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnss-systemd amd64 249.11-0ubuntu3.15 [133 kB]
+Get:2 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libudev1 amd64 249.11-0ubuntu3.15 [76,6 kB]
+Get:3 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main i386 libudev1 i386 249.11-0ubuntu3.15 [80,5 kB]
+Get:4 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libudev-dev amd64 249.11-0ubuntu3.15 [20,7 kB]
+Get:5 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd amd64 249.11-0ubuntu3.15 [4 581 kB]
+Get:6 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main amd64 udev amd64 249.11-0ubuntu3.15 [1 557 kB]
+Get:7 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd-timesyncd amd64 249.11-0ubuntu3.15 [31,2 kB]
+Get:8 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd-sysv amd64 249.11-0ubuntu3.15 [10,5 kB]
+Get:9 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd-oomd amd64 249.11-0ubuntu3.15 [34,8 kB]
+Get:10 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpam-systemd amd64 249.11-0ubuntu3.15 [203 kB]
+Get:11 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main i386 libsystemd0 i386 249.11-0ubuntu3.15 [340 kB]
+Get:12 http://kz.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libsystemd0 amd64 249.11-0ubuntu3.15 [317 kB]
+Fetched 7 385 kB in 2s (3 201 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 373980 files and directories currently installed.)
+Preparing to unpack .../libnss-systemd_249.11-0ubuntu3.15_amd64.deb ...
+Unpacking libnss-systemd:amd64 (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Preparing to unpack .../libudev1_249.11-0ubuntu3.15_i386.deb ...
+De-configuring libudev1:amd64 (249.11-0ubuntu3.12), to allow configuration of libudev1:i386 (249.11-0ubuntu3.12) ...
+Unpacking libudev1:i386 (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Preparing to unpack .../libudev1_249.11-0ubuntu3.15_amd64.deb ...
+Unpacking libudev1:amd64 (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Setting up libudev1:amd64 (249.11-0ubuntu3.15) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 373980 files and directories currently installed.)
+Preparing to unpack .../0-libudev-dev_249.11-0ubuntu3.15_amd64.deb ...
+Unpacking libudev-dev:amd64 (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Preparing to unpack .../1-systemd_249.11-0ubuntu3.15_amd64.deb ...
+Unpacking systemd (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Preparing to unpack .../2-udev_249.11-0ubuntu3.15_amd64.deb ...
+Unpacking udev (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Preparing to unpack .../3-systemd-timesyncd_249.11-0ubuntu3.15_amd64.deb ...
+Unpacking systemd-timesyncd (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Preparing to unpack .../4-libsystemd0_249.11-0ubuntu3.15_i386.deb ...
+De-configuring libsystemd0:amd64 (249.11-0ubuntu3.12), to allow configuration of libsystemd0:i386 (249.11-0ubuntu3.12) ...
+Unpacking libsystemd0:i386 (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Preparing to unpack .../5-libsystemd0_249.11-0ubuntu3.15_amd64.deb ...
+Unpacking libsystemd0:amd64 (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Setting up libsystemd0:amd64 (249.11-0ubuntu3.15) ...
+Setting up systemd (249.11-0ubuntu3.15) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 373980 files and directories currently installed.)
+Preparing to unpack .../systemd-sysv_249.11-0ubuntu3.15_amd64.deb ...
+Unpacking systemd-sysv (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Preparing to unpack .../systemd-oomd_249.11-0ubuntu3.15_amd64.deb ...
+Unpacking systemd-oomd (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Preparing to unpack .../libpam-systemd_249.11-0ubuntu3.15_amd64.deb ...
+Unpacking libpam-systemd:amd64 (249.11-0ubuntu3.15) over (249.11-0ubuntu3.12) ...
+Setting up systemd-sysv (249.11-0ubuntu3.15) ...
+Setting up libnss-systemd:amd64 (249.11-0ubuntu3.15) ...
+Setting up libsystemd0:i386 (249.11-0ubuntu3.15) ...
+Setting up systemd-timesyncd (249.11-0ubuntu3.15) ...
+Setting up udev (249.11-0ubuntu3.15) ...
+Setting up libudev-dev:amd64 (249.11-0ubuntu3.15) ...
+Setting up libudev1:i386 (249.11-0ubuntu3.15) ...
+Setting up libpam-systemd:amd64 (249.11-0ubuntu3.15) ...
+Setting up systemd-oomd (249.11-0ubuntu3.15) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.9) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for dbus (1.12.20-2ubuntu4.1) ...
+Processing triggers for initramfs-tools (0.140ubuntu13.4) ...
+update-initramfs: Generating /boot/initrd.img-6.8.0-57-generic
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ansible is already the newest version (2.10.7+merged+base+2.10.8+dfsg-1).
+npm is already the newest version (8.5.1~ds-1).
+curl is already the newest version (7.81.0-1ubuntu1.20).
+git is already the newest version (1:2.34.1-1ubuntu1.12).
+nodejs is already the newest version (12.22.9~dfsg-1ubuntu3.6).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+
+===== STEP 2: Mininet Installation =====
+Mininet directory already exists. Skipping clone.
+Installing Mininet (full install) with '-q'...
+Detected Linux distribution: Ubuntu 22.04 jammy amd64
+sys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)
+Detected Python (python) version 3
+Installing all packages except for -eix (doxypy, ivs, nox-classic)...
+Install Mininet-compatible kernel if necessary
+Hit:1 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:3 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:4 https://download.docker.com/linux/ubuntu jammy InRelease
+Hit:5 https://deb.torproject.org/torproject.org noble InRelease
+Hit:6 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:7 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:8 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Fetched 2 957 B in 1s (2 567 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+linux-image-6.8.0-57-generic is already the newest version (6.8.0-57.59~22.04.1).
+linux-image-6.8.0-57-generic set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+make is already the newest version (4.3-4.1build1).
+net-tools is already the newest version (1.60+git20181103.0eebece-1ubuntu5).
+psmisc is already the newest version (23.4-2build3).
+socat is already the newest version (1.7.4.1-3ubuntu4).
+telnet is already the newest version (0.17-44build1).
+help2man is already the newest version (1.49.1).
+iperf is already the newest version (2.1.5+dfsg1-1).
+pep8 is already the newest version (1.7.1-9ubuntu1).
+pyflakes3 is already the newest version (2.4.0-2).
+pylint is already the newest version (2.12.2-1).
+xterm is already the newest version (372-1ubuntu1).
+ethtool is already the newest version (1:5.16-1ubuntu0.1).
+python3-tk is already the newest version (3.10.8-1~22.04).
+ssh is already the newest version (1:8.9p1-3ubuntu0.11).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.5).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+Requirement already satisfied: pexpect in /usr/lib/python3/dist-packages (4.8.0)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Reading package lists...
+Building dependency tree...
+Reading state information...
+iproute2 is already the newest version (5.15.0-1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroup-tools is already the newest version (2.0-2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroupfs-mount is already the newest version (1.4).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet core
+/home/yerassyl/mininet /home/yerassyl/mininet
+install -D mnexec /usr/bin/mnexec
+install -D -t /usr/share/man/man1 mn.1 mnexec.1
+python -m pip uninstall -y mininet || true
+Found existing installation: mininet 2.3.1b4
+Uninstalling mininet-2.3.1b4:
+  Successfully uninstalled mininet-2.3.1b4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+python -m pip install .
+Processing /home/yerassyl/mininet
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages (from mininet==2.3.1b4) (59.6.0)
+Building wheels for collected packages: mininet
+  Building wheel for mininet (setup.py): started
+  Building wheel for mininet (setup.py): finished with status 'done'
+  Created wheel for mininet: filename=mininet-2.3.1b4-py3-none-any.whl size=160967 sha256=55a785dfa262e38d8bf75f479dcfd5c0df864686edcbf905d573a5b83ea229a7
+  Stored in directory: /tmp/pip-ephem-wheel-cache-girf58kq/wheels/88/c5/35/bdfb835f1e500077d61a56171d9ff4e89e105ce5224131e8a2
+Successfully built mininet
+Installing collected packages: mininet
+Successfully installed mininet-2.3.1b4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+/home/yerassyl/mininet
+Installing OpenFlow reference implementation...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+autoconf is already the newest version (2.71-2).
+automake is already the newest version (1:1.16.5-1.3).
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+libtool is already the newest version (2.4.6-15build2).
+make is already the newest version (4.3-4.1build1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+autotools-dev is already the newest version (20220109.1).
+pkg-config is already the newest version (0.29.2-1ubuntu3).
+git is already the newest version (1:2.34.1-1ubuntu1.12).
+libc6-dev is already the newest version (2.35-0ubuntu3.9).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+fatal: destination path 'openflow' already exists and is not an empty directory.
+[ERROR] Mininet installation failed.
+
+===== STEP 3: Docker Installation =====
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package 'docker-engine' is not installed, so not removed
+Package 'docker' is not installed, so not removed
+Package 'containerd' is not installed, so not removed
+Package 'runc' is not installed, so not removed
+Package 'docker.io' is not installed, so not removed
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ca-certificates is already the newest version (20240203~22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Hit:1 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:3 https://download.docker.com/linux/ubuntu jammy InRelease
+Get:4 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:5 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:6 https://deb.torproject.org/torproject.org noble InRelease
+Hit:7 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Hit:8 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Fetched 2 957 B in 1s (2 340 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+containerd.io is already the newest version (1.7.27-1).
+docker-buildx-plugin is already the newest version (0.22.0-1~ubuntu.22.04~jammy).
+docker-ce-cli is already the newest version (5:28.0.4-1~ubuntu.22.04~jammy).
+docker-ce is already the newest version (5:28.0.4-1~ubuntu.22.04~jammy).
+docker-compose-plugin is already the newest version (2.34.0-1~ubuntu.22.04~jammy).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Testing Docker with 'hello-world' container...
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+===== STEP 4: Floodlight (Docker) =====
+Pulling Floodlight Docker image 'piyushk2001/floodlight-controller'...
+Using default tag: latest
+latest: Pulling from piyushk2001/floodlight-controller
+Digest: sha256:7b32fecd230b1d48b40a90f4ada5493c1a6ca4163b05ba1be6b15f467e702024
+Status: Image is up to date for piyushk2001/floodlight-controller:latest
+docker.io/piyushk2001/floodlight-controller:latest
+
+===== STEP 5: Mininet-WiFi =====
+Cloning Mininet-WiFi repo into /mininet-wifi ...
+fatal: could not create work tree dir '/mininet-wifi': Permission denied
+[ERROR] Cloning Mininet-WiFi repo failed.
+===== Starting installation at Жм 04 Сәу 2025 22:00:42 +05 =====
+
+===== STEP 1: System Update and Dependencies =====
+Hit:1 https://deb.torproject.org/torproject.org noble InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:3 https://download.docker.com/linux/ubuntu jammy InRelease
+Hit:4 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Get:5 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:6 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:7 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:8 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Fetched 2 957 B in 1s (2 278 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages have been kept back:
+  tor tor-geoipdb
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ansible is already the newest version (2.10.7+merged+base+2.10.8+dfsg-1).
+npm is already the newest version (8.5.1~ds-1).
+curl is already the newest version (7.81.0-1ubuntu1.20).
+git is already the newest version (1:2.34.1-1ubuntu1.12).
+nodejs is already the newest version (12.22.9~dfsg-1ubuntu3.6).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+
+===== STEP 2: Mininet Installation =====
+Mininet directory already exists. Skipping clone.
+Installing Mininet (full install) with '-q'...
+Detected Linux distribution: Ubuntu 22.04 jammy amd64
+sys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)
+Detected Python (python) version 3
+Installing all packages except for -eix (doxypy, ivs, nox-classic)...
+Install Mininet-compatible kernel if necessary
+Hit:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:2 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Get:3 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:4 https://download.docker.com/linux/ubuntu jammy InRelease
+Hit:5 https://deb.torproject.org/torproject.org noble InRelease
+Hit:6 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:7 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:8 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Fetched 2 957 B in 1s (2 444 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+linux-image-6.8.0-57-generic is already the newest version (6.8.0-57.59~22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+make is already the newest version (4.3-4.1build1).
+net-tools is already the newest version (1.60+git20181103.0eebece-1ubuntu5).
+psmisc is already the newest version (23.4-2build3).
+socat is already the newest version (1.7.4.1-3ubuntu4).
+telnet is already the newest version (0.17-44build1).
+help2man is already the newest version (1.49.1).
+iperf is already the newest version (2.1.5+dfsg1-1).
+pep8 is already the newest version (1.7.1-9ubuntu1).
+pyflakes3 is already the newest version (2.4.0-2).
+pylint is already the newest version (2.12.2-1).
+xterm is already the newest version (372-1ubuntu1).
+ethtool is already the newest version (1:5.16-1ubuntu0.1).
+python3-tk is already the newest version (3.10.8-1~22.04).
+ssh is already the newest version (1:8.9p1-3ubuntu0.11).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.5).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+Requirement already satisfied: pexpect in /usr/lib/python3/dist-packages (4.8.0)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Reading package lists...
+Building dependency tree...
+Reading state information...
+iproute2 is already the newest version (5.15.0-1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroup-tools is already the newest version (2.0-2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroupfs-mount is already the newest version (1.4).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet core
+/home/yerassyl/mininet /home/yerassyl/mininet
+install -D mnexec /usr/bin/mnexec
+install -D -t /usr/share/man/man1 mn.1 mnexec.1
+python -m pip uninstall -y mininet || true
+Found existing installation: mininet 2.3.1b4
+Uninstalling mininet-2.3.1b4:
+  Successfully uninstalled mininet-2.3.1b4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+python -m pip install .
+Processing /home/yerassyl/mininet
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages (from mininet==2.3.1b4) (59.6.0)
+Building wheels for collected packages: mininet
+  Building wheel for mininet (setup.py): started
+  Building wheel for mininet (setup.py): finished with status 'done'
+  Created wheel for mininet: filename=mininet-2.3.1b4-py3-none-any.whl size=160967 sha256=72941c0d4806d381b1801af8d1ef428b7b4a2641a08382542ff162d778bce949
+  Stored in directory: /tmp/pip-ephem-wheel-cache-bf0grfci/wheels/88/c5/35/bdfb835f1e500077d61a56171d9ff4e89e105ce5224131e8a2
+Successfully built mininet
+Installing collected packages: mininet
+Successfully installed mininet-2.3.1b4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+/home/yerassyl/mininet
+Installing OpenFlow reference implementation...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+autoconf is already the newest version (2.71-2).
+automake is already the newest version (1:1.16.5-1.3).
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+libtool is already the newest version (2.4.6-15build2).
+make is already the newest version (4.3-4.1build1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+autotools-dev is already the newest version (20220109.1).
+pkg-config is already the newest version (0.29.2-1ubuntu3).
+git is already the newest version (1:2.34.1-1ubuntu1.12).
+libc6-dev is already the newest version (2.35-0ubuntu3.9).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+fatal: destination path 'openflow' already exists and is not an empty directory.
+[ERROR] Mininet installation failed.
+
+===== STEP 3: Docker Installation =====
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package 'docker-engine' is not installed, so not removed
+Package 'docker' is not installed, so not removed
+Package 'containerd' is not installed, so not removed
+Package 'runc' is not installed, so not removed
+Package 'docker.io' is not installed, so not removed
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ca-certificates is already the newest version (20240203~22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Hit:1 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 https://deb.torproject.org/torproject.org noble InRelease
+Get:3 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:4 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:5 https://download.docker.com/linux/ubuntu jammy InRelease
+Hit:6 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:7 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:8 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Fetched 2 957 B in 1s (2 670 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+containerd.io is already the newest version (1.7.27-1).
+docker-buildx-plugin is already the newest version (0.22.0-1~ubuntu.22.04~jammy).
+docker-ce-cli is already the newest version (5:28.0.4-1~ubuntu.22.04~jammy).
+docker-ce is already the newest version (5:28.0.4-1~ubuntu.22.04~jammy).
+docker-compose-plugin is already the newest version (2.34.0-1~ubuntu.22.04~jammy).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Testing Docker with 'hello-world' container...
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+===== STEP 4: Floodlight (Docker) =====
+Pulling Floodlight Docker image 'piyushk2001/floodlight-controller'...
+Using default tag: latest
+latest: Pulling from piyushk2001/floodlight-controller
+Digest: sha256:7b32fecd230b1d48b40a90f4ada5493c1a6ca4163b05ba1be6b15f467e702024
+Status: Image is up to date for piyushk2001/floodlight-controller:latest
+docker.io/piyushk2001/floodlight-controller:latest
+
+===== STEP 5: Mininet-WiFi =====
+Cloning Mininet-WiFi repo into /mininet-wifi ...
+fatal: could not create work tree dir '/mininet-wifi': Permission denied
+[ERROR] Cloning Mininet-WiFi repo failed.
+===== Starting installation at Жм 04 Сәу 2025 22:02:28 +05 =====
+
+===== STEP 1: System Update and Dependencies =====
+Hit:1 https://download.docker.com/linux/ubuntu jammy InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:3 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Get:4 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:5 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:6 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:7 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Hit:8 https://deb.torproject.org/torproject.org noble InRelease
+Fetched 2 957 B in 1s (2 317 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages have been kept back:
+  tor tor-geoipdb
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ansible is already the newest version (2.10.7+merged+base+2.10.8+dfsg-1).
+npm is already the newest version (8.5.1~ds-1).
+curl is already the newest version (7.81.0-1ubuntu1.20).
+git is already the newest version (1:2.34.1-1ubuntu1.12).
+nodejs is already the newest version (12.22.9~dfsg-1ubuntu3.6).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+
+===== STEP 2: Mininet Installation =====
+Mininet directory already exists. Skipping clone.
+Installing Mininet (full install) with '-q'...
+Detected Linux distribution: Ubuntu 22.04 jammy amd64
+sys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)
+Detected Python (python) version 3
+Installing all packages except for -eix (doxypy, ivs, nox-classic)...
+Install Mininet-compatible kernel if necessary
+Hit:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:2 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:3 https://download.docker.com/linux/ubuntu jammy InRelease
+Get:4 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:5 https://deb.torproject.org/torproject.org noble InRelease
+Hit:6 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:7 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:8 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Fetched 2 957 B in 1s (3 596 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+linux-image-6.8.0-57-generic is already the newest version (6.8.0-57.59~22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+make is already the newest version (4.3-4.1build1).
+net-tools is already the newest version (1.60+git20181103.0eebece-1ubuntu5).
+psmisc is already the newest version (23.4-2build3).
+socat is already the newest version (1.7.4.1-3ubuntu4).
+telnet is already the newest version (0.17-44build1).
+help2man is already the newest version (1.49.1).
+iperf is already the newest version (2.1.5+dfsg1-1).
+pep8 is already the newest version (1.7.1-9ubuntu1).
+pyflakes3 is already the newest version (2.4.0-2).
+pylint is already the newest version (2.12.2-1).
+xterm is already the newest version (372-1ubuntu1).
+ethtool is already the newest version (1:5.16-1ubuntu0.1).
+python3-tk is already the newest version (3.10.8-1~22.04).
+ssh is already the newest version (1:8.9p1-3ubuntu0.11).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.5).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+Requirement already satisfied: pexpect in /usr/lib/python3/dist-packages (4.8.0)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Reading package lists...
+Building dependency tree...
+Reading state information...
+iproute2 is already the newest version (5.15.0-1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroup-tools is already the newest version (2.0-2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroupfs-mount is already the newest version (1.4).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet core
+/home/yerassyl/mininet /home/yerassyl/mininet
+install -D mnexec /usr/bin/mnexec
+install -D -t /usr/share/man/man1 mn.1 mnexec.1
+python -m pip uninstall -y mininet || true
+Found existing installation: mininet 2.3.1b4
+Uninstalling mininet-2.3.1b4:
+  Successfully uninstalled mininet-2.3.1b4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+python -m pip install .
+Processing /home/yerassyl/mininet
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages (from mininet==2.3.1b4) (59.6.0)
+Building wheels for collected packages: mininet
+  Building wheel for mininet (setup.py): started
+  Building wheel for mininet (setup.py): finished with status 'done'
+  Created wheel for mininet: filename=mininet-2.3.1b4-py3-none-any.whl size=160967 sha256=d68e9f55caeb089e25fca5ad37b577e673fcd0a3161f94f0e148aaea79e651fc
+  Stored in directory: /tmp/pip-ephem-wheel-cache-33j9m_sp/wheels/88/c5/35/bdfb835f1e500077d61a56171d9ff4e89e105ce5224131e8a2
+Successfully built mininet
+Installing collected packages: mininet
+Successfully installed mininet-2.3.1b4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+/home/yerassyl/mininet
+Installing OpenFlow reference implementation...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+autoconf is already the newest version (2.71-2).
+automake is already the newest version (1:1.16.5-1.3).
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+libtool is already the newest version (2.4.6-15build2).
+make is already the newest version (4.3-4.1build1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+autotools-dev is already the newest version (20220109.1).
+pkg-config is already the newest version (0.29.2-1ubuntu3).
+git is already the newest version (1:2.34.1-1ubuntu1.12).
+libc6-dev is already the newest version (2.35-0ubuntu3.9).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+fatal: destination path 'openflow' already exists and is not an empty directory.
+[ERROR] Mininet installation failed.
+
+===== STEP 3: Docker Installation =====
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package 'docker-engine' is not installed, so not removed
+Package 'docker' is not installed, so not removed
+Package 'containerd' is not installed, so not removed
+Package 'runc' is not installed, so not removed
+Package 'docker.io' is not installed, so not removed
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ca-certificates is already the newest version (20240203~22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Hit:1 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:3 https://download.docker.com/linux/ubuntu jammy InRelease
+Get:4 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:5 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:6 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:7 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Hit:8 https://deb.torproject.org/torproject.org noble InRelease
+Fetched 2 957 B in 1s (3 036 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+containerd.io is already the newest version (1.7.27-1).
+docker-buildx-plugin is already the newest version (0.22.0-1~ubuntu.22.04~jammy).
+docker-ce-cli is already the newest version (5:28.0.4-1~ubuntu.22.04~jammy).
+docker-ce is already the newest version (5:28.0.4-1~ubuntu.22.04~jammy).
+docker-compose-plugin is already the newest version (2.34.0-1~ubuntu.22.04~jammy).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Testing Docker with 'hello-world' container...
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+===== STEP 4: Floodlight (Docker) =====
+Pulling Floodlight Docker image 'piyushk2001/floodlight-controller'...
+Using default tag: latest
+latest: Pulling from piyushk2001/floodlight-controller
+Digest: sha256:7b32fecd230b1d48b40a90f4ada5493c1a6ca4163b05ba1be6b15f467e702024
+Status: Image is up to date for piyushk2001/floodlight-controller:latest
+docker.io/piyushk2001/floodlight-controller:latest
+
+===== STEP 5: Mininet-WiFi =====
+Cloning Mininet-WiFi repo into  ...
+fatal: could not create work tree dir '': No such file or directory
+Installing Mininet-WiFi with 'sudo util/install.sh -Wlnfv'...
+Detected Linux distribution: Ubuntu 22.04 jammy amd64
+Ubuntu
+sys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)
+Detected Python (python) version 3
+Installing Mininet dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+make is already the newest version (4.3-4.1build1).
+net-tools is already the newest version (1.60+git20181103.0eebece-1ubuntu5).
+psmisc is already the newest version (23.4-2build3).
+python3-pexpect is already the newest version (4.8.0-2ubuntu1).
+socat is already the newest version (1.7.4.1-3ubuntu4).
+telnet is already the newest version (0.17-44build1).
+help2man is already the newest version (1.49.1).
+iperf is already the newest version (2.1.5+dfsg1-1).
+pep8 is already the newest version (1.7.1-9ubuntu1).
+pyflakes3 is already the newest version (2.4.0-2).
+pylint is already the newest version (2.12.2-1).
+xterm is already the newest version (372-1ubuntu1).
+ethtool is already the newest version (1:5.16-1ubuntu0.1).
+python3-tk is already the newest version (3.10.8-1~22.04).
+ssh is already the newest version (1:8.9p1-3ubuntu0.11).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.5).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+iproute2 is already the newest version (5.15.0-1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroup-tools is already the newest version (2.0-2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet-WiFi dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libevent-dev is already the newest version (2.1.12-stable-1build3).
+libnl-3-dev is already the newest version (3.5.0-0.1).
+libnl-genl-3-dev is already the newest version (3.5.0-0.1).
+libnl-route-3-dev is already the newest version (3.5.0-0.1).
+make is already the newest version (4.3-4.1build1).
+patch is already the newest version (2.7.6-7build2).
+pkg-config is already the newest version (0.29.2-1ubuntu3).
+python3-psutil is already the newest version (5.9.0-1build1).
+wireless-tools is already the newest version (30~pre9-13.1ubuntu4).
+python3-matplotlib is already the newest version (3.5.1-2build1).
+libdbus-1-dev is already the newest version (1.12.20-2ubuntu4.1).
+libssl-dev is already the newest version (3.0.2-0ubuntu1.19).
+python3-numpy is already the newest version (1:1.21.5-1ubuntu22.04.1).
+rfkill is already the newest version (2.37.2-4ubuntu3.4).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+/home/yerassyl/mininet-wifi /home/yerassyl
+/home/yerassyl/mininet-wifi/hostap /home/yerassyl/mininet-wifi /home/yerassyl
+patching file hostapd/defconfig
+Reversed (or previously applied) patch detected!  Assume -R? [n] 
+Apply anyway? [n] 
+Skipping patch.
+9 out of 9 hunks ignored -- saving rejects to file hostapd/defconfig.rej
+patching file wpa_supplicant/defconfig
+Reversed (or previously applied) patch detected!  Assume -R? [n] 
+Apply anyway? [n] 
+Skipping patch.
+6 out of 6 hunks ignored -- saving rejects to file wpa_supplicant/defconfig.rej
+patching file wpa_supplicant/p2p_supplicant.c
+Reversed (or previously applied) patch detected!  Assume -R? [n] 
+Apply anyway? [n] 
+Skipping patch.
+1 out of 1 hunk ignored -- saving rejects to file wpa_supplicant/p2p_supplicant.c.rej
+Done installing Mininet-WiFi locally at 
+
+===== STEP 6: Containernet =====
+Cloning Containernet repo into  ...
+fatal: could not create work tree dir '': No such file or directory
+Installing Containernet 'sudo ansible-playbook -i localhost, -c local containernet/ansible/install.yml'...
+
+PLAY [localhost] ***************************************************************
+
+TASK [Gathering Facts] *********************************************************
+[DEPRECATION WARNING]: Distribution ubuntu 22.04 on host localhost should use 
+/usr/bin/python3, but is using /usr/bin/python for backward compatibility with 
+prior Ansible releases. A future Ansible release will default to using the 
+discovered platform python for this host. See https://docs.ansible.com/ansible/
+2.10/reference_appendices/interpreter_discovery.html for more information. This
+ feature will be removed in version 2.12. Deprecation warnings can be disabled 
+by setting deprecation_warnings=False in ansible.cfg.
+ok: [localhost]
+
+TASK [updates apt] *************************************************************
+changed: [localhost]
+
+TASK [install basic packages] **************************************************
+ok: [localhost]
+
+TASK [Check if Docker-CE is installed] *****************************************
+ok: [localhost]
+
+TASK [Add Docker CE repository key] ********************************************
+skipping: [localhost]
+
+TASK [Check system architecture] ***********************************************
+skipping: [localhost]
+
+TASK [Check OS Codename] *******************************************************
+skipping: [localhost]
+
+TASK [Install Docker CE repository] ********************************************
+skipping: [localhost]
+
+TASK [install Docker CE] *******************************************************
+skipping: [localhost]
+
+TASK [find pip executable] *****************************************************
+changed: [localhost]
+
+TASK [build and install Containernet dependencies (using Mininet installer)] ***
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": "PYTHON=python3 containernet/util/install.sh -fnv", "delta": "0:00:00.741107", "end": "2025-04-04 22:02:55.231374", "msg": "non-zero return code", "rc": 128, "start": "2025-04-04 22:02:54.490267", "stderr": "fatal: destination path 'openflow' already exists and is not an empty directory.", "stderr_lines": ["fatal: destination path 'openflow' already exists and is not an empty directory."], "stdout": "Detected Linux distribution: Ubuntu 22.04 jammy amd64\nsys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)\nDetected Python (python3) version 3\nInstalling OpenFlow reference implementation...\nReading package lists...\nBuilding dependency tree...\nReading state information...\nautoconf is already the newest version (2.71-2).\nautomake is already the newest version (1:1.16.5-1.3).\ngcc is already the newest version (4:11.2.0-1ubuntu1).\nlibtool is already the newest version (2.4.6-15build2).\nmake is already the newest version (4.3-4.1build1).\n0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.\nReading package lists...\nBuilding dependency tree...\nReading state information...\nautotools-dev is already the newest version (20220109.1).\npkg-config is already the newest version (0.29.2-1ubuntu3).\ngit is already the newest version (1:2.34.1-1ubuntu1.12).\nlibc6-dev is already the newest version (2.35-0ubuntu3.9).\n0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.", "stdout_lines": ["Detected Linux distribution: Ubuntu 22.04 jammy amd64", "sys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)", "Detected Python (python3) version 3", "Installing OpenFlow reference implementation...", "Reading package lists...", "Building dependency tree...", "Reading state information...", "autoconf is already the newest version (2.71-2).", "automake is already the newest version (1:1.16.5-1.3).", "gcc is already the newest version (4:11.2.0-1ubuntu1).", "libtool is already the newest version (2.4.6-15build2).", "make is already the newest version (4.3-4.1build1).", "0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.", "Reading package lists...", "Building dependency tree...", "Reading state information...", "autotools-dev is already the newest version (20220109.1).", "pkg-config is already the newest version (0.29.2-1ubuntu3).", "git is already the newest version (1:2.34.1-1ubuntu1.12).", "libc6-dev is already the newest version (2.35-0ubuntu3.9).", "0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded."]}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=5    changed=2    unreachable=0    failed=1    skipped=5    rescued=0    ignored=0   
+
+Done installing Containernet locally at 
+
+===== STEP 7: Ganache (via NPM) =====
+Installing Ganache globally with npm...
+
+changed 338 packages, and audited 366 packages in 16s
+
+6 packages are looking for funding
+  run `npm fund` for details
+
+18 vulnerabilities (3 moderate, 13 high, 2 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'truffle@5.11.5',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/db-loader@0.2.36',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/debugger@12.1.5',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'mocha@10.1.0',
+npm WARN EBADENGINE   required: { node: '>= 14.0.0' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/abi-utils@1.0.3',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/code-utils@3.0.4',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/error@0.2.2',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/codec@0.17.3',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/source-map-utils@1.3.119',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/compile-common@0.9.8',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'got@12.1.0',
+npm WARN EBADENGINE   required: { node: '>=14.16' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@szmarczak/http-timer@5.0.1',
+npm WARN EBADENGINE   required: { node: '>=14.16' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@noble/hashes@1.7.1',
+npm WARN EBADENGINE   required: { node: '^14.21.3 || >=16' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+===== Starting installation at Жм 04 Сәу 2025 22:18:46 +05 =====
+
+===== STEP 1: System Update and Dependencies =====
+Hit:1 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:3 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:4 https://download.docker.com/linux/ubuntu jammy InRelease
+Get:5 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:6 https://deb.torproject.org/torproject.org noble InRelease
+Hit:7 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:8 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Fetched 2 957 B in 17s (173 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages have been kept back:
+  tor tor-geoipdb
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ansible is already the newest version (2.10.7+merged+base+2.10.8+dfsg-1).
+npm is already the newest version (8.5.1~ds-1).
+curl is already the newest version (7.81.0-1ubuntu1.20).
+git is already the newest version (1:2.34.1-1ubuntu1.12).
+nodejs is already the newest version (12.22.9~dfsg-1ubuntu3.6).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+
+===== STEP 2: Mininet Installation =====
+Mininet directory already exists. Skipping clone.
+Installing Mininet (full install) with '-q'...
+Detected Linux distribution: Ubuntu 22.04 jammy amd64
+sys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)
+Detected Python (python) version 3
+Installing all packages except for -eix (doxypy, ivs, nox-classic)...
+Install Mininet-compatible kernel if necessary
+Hit:1 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:3 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:4 https://download.docker.com/linux/ubuntu jammy InRelease
+Hit:5 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:6 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:7 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Hit:8 https://deb.torproject.org/torproject.org noble InRelease
+Fetched 2 957 B in 1s (2 571 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+linux-image-6.8.0-57-generic is already the newest version (6.8.0-57.59~22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+make is already the newest version (4.3-4.1build1).
+net-tools is already the newest version (1.60+git20181103.0eebece-1ubuntu5).
+psmisc is already the newest version (23.4-2build3).
+socat is already the newest version (1.7.4.1-3ubuntu4).
+telnet is already the newest version (0.17-44build1).
+help2man is already the newest version (1.49.1).
+iperf is already the newest version (2.1.5+dfsg1-1).
+pep8 is already the newest version (1.7.1-9ubuntu1).
+pyflakes3 is already the newest version (2.4.0-2).
+pylint is already the newest version (2.12.2-1).
+xterm is already the newest version (372-1ubuntu1).
+ethtool is already the newest version (1:5.16-1ubuntu0.1).
+python3-tk is already the newest version (3.10.8-1~22.04).
+ssh is already the newest version (1:8.9p1-3ubuntu0.11).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.5).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+Requirement already satisfied: pexpect in /usr/lib/python3/dist-packages (4.8.0)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Reading package lists...
+Building dependency tree...
+Reading state information...
+iproute2 is already the newest version (5.15.0-1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroup-tools is already the newest version (2.0-2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroupfs-mount is already the newest version (1.4).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet core
+/home/yerassyl/mininet /home/yerassyl/mininet
+install -D mnexec /usr/bin/mnexec
+install -D -t /usr/share/man/man1 mn.1 mnexec.1
+python -m pip uninstall -y mininet || true
+Found existing installation: mininet 2.3.1b4
+Uninstalling mininet-2.3.1b4:
+  Successfully uninstalled mininet-2.3.1b4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+python -m pip install .
+Processing /home/yerassyl/mininet
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages (from mininet==2.3.1b4) (59.6.0)
+Building wheels for collected packages: mininet
+  Building wheel for mininet (setup.py): started
+  Building wheel for mininet (setup.py): finished with status 'done'
+  Created wheel for mininet: filename=mininet-2.3.1b4-py3-none-any.whl size=160967 sha256=4c6e2f33c20fd518d0a53d67413943a2b23ec585d3d998ac82b24312e78b2e51
+  Stored in directory: /tmp/pip-ephem-wheel-cache-ljcwr7j6/wheels/88/c5/35/bdfb835f1e500077d61a56171d9ff4e89e105ce5224131e8a2
+Successfully built mininet
+Installing collected packages: mininet
+Successfully installed mininet-2.3.1b4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+/home/yerassyl/mininet
+Installing OpenFlow reference implementation...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+autoconf is already the newest version (2.71-2).
+automake is already the newest version (1:1.16.5-1.3).
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+libtool is already the newest version (2.4.6-15build2).
+make is already the newest version (4.3-4.1build1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+autotools-dev is already the newest version (20220109.1).
+pkg-config is already the newest version (0.29.2-1ubuntu3).
+git is already the newest version (1:2.34.1-1ubuntu1.12).
+libc6-dev is already the newest version (2.35-0ubuntu3.9).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+fatal: destination path 'openflow' already exists and is not an empty directory.
+[ERROR] Mininet installation failed.
+
+===== STEP 3: Docker Installation =====
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package 'docker-engine' is not installed, so not removed
+Package 'docker' is not installed, so not removed
+Package 'containerd' is not installed, so not removed
+Package 'runc' is not installed, so not removed
+Package 'docker.io' is not installed, so not removed
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ca-certificates is already the newest version (20240203~22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Hit:1 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:3 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:4 https://download.docker.com/linux/ubuntu jammy InRelease
+Get:5 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:6 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:7 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Hit:8 https://deb.torproject.org/torproject.org noble InRelease
+Fetched 2 957 B in 1s (2 969 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+containerd.io is already the newest version (1.7.27-1).
+docker-buildx-plugin is already the newest version (0.22.0-1~ubuntu.22.04~jammy).
+docker-ce-cli is already the newest version (5:28.0.4-1~ubuntu.22.04~jammy).
+docker-ce is already the newest version (5:28.0.4-1~ubuntu.22.04~jammy).
+docker-compose-plugin is already the newest version (2.34.0-1~ubuntu.22.04~jammy).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Testing Docker with 'hello-world' container...
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+===== STEP 4: Floodlight (Docker) =====
+Pulling Floodlight Docker image 'piyushk2001/floodlight-controller'...
+Using default tag: latest
+latest: Pulling from piyushk2001/floodlight-controller
+Digest: sha256:7b32fecd230b1d48b40a90f4ada5493c1a6ca4163b05ba1be6b15f467e702024
+Status: Image is up to date for piyushk2001/floodlight-controller:latest
+docker.io/piyushk2001/floodlight-controller:latest
+
+===== STEP 5: Mininet-WiFi =====
+Cloning Mininet-WiFi repo into /home/yerassyl/mininet-wifi ...
+fatal: destination path '/home/yerassyl/mininet-wifi' already exists and is not an empty directory.
+Installing Mininet-WiFi with 'sudo util/install.sh -Wlnfv' ...
+Detected Linux distribution: Ubuntu 22.04 jammy amd64
+Ubuntu
+sys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)
+Detected Python (python) version 3
+Installing Mininet dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+make is already the newest version (4.3-4.1build1).
+net-tools is already the newest version (1.60+git20181103.0eebece-1ubuntu5).
+psmisc is already the newest version (23.4-2build3).
+python3-pexpect is already the newest version (4.8.0-2ubuntu1).
+socat is already the newest version (1.7.4.1-3ubuntu4).
+telnet is already the newest version (0.17-44build1).
+help2man is already the newest version (1.49.1).
+iperf is already the newest version (2.1.5+dfsg1-1).
+pep8 is already the newest version (1.7.1-9ubuntu1).
+pyflakes3 is already the newest version (2.4.0-2).
+pylint is already the newest version (2.12.2-1).
+xterm is already the newest version (372-1ubuntu1).
+ethtool is already the newest version (1:5.16-1ubuntu0.1).
+python3-tk is already the newest version (3.10.8-1~22.04).
+ssh is already the newest version (1:8.9p1-3ubuntu0.11).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.5).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+iproute2 is already the newest version (5.15.0-1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroup-tools is already the newest version (2.0-2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet-WiFi dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libevent-dev is already the newest version (2.1.12-stable-1build3).
+libnl-3-dev is already the newest version (3.5.0-0.1).
+libnl-genl-3-dev is already the newest version (3.5.0-0.1).
+libnl-route-3-dev is already the newest version (3.5.0-0.1).
+make is already the newest version (4.3-4.1build1).
+patch is already the newest version (2.7.6-7build2).
+pkg-config is already the newest version (0.29.2-1ubuntu3).
+python3-psutil is already the newest version (5.9.0-1build1).
+wireless-tools is already the newest version (30~pre9-13.1ubuntu4).
+python3-matplotlib is already the newest version (3.5.1-2build1).
+libdbus-1-dev is already the newest version (1.12.20-2ubuntu4.1).
+libssl-dev is already the newest version (3.0.2-0ubuntu1.19).
+python3-numpy is already the newest version (1:1.21.5-1ubuntu22.04.1).
+rfkill is already the newest version (2.37.2-4ubuntu3.4).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+/home/yerassyl/mininet-wifi /home/yerassyl/mininet-wifi
+/home/yerassyl/mininet-wifi/hostap /home/yerassyl/mininet-wifi /home/yerassyl/mininet-wifi
+patching file hostapd/defconfig
+Reversed (or previously applied) patch detected!  Assume -R? [n] 
+Apply anyway? [n] 
+Skipping patch.
+9 out of 9 hunks ignored -- saving rejects to file hostapd/defconfig.rej
+patching file wpa_supplicant/defconfig
+Reversed (or previously applied) patch detected!  Assume -R? [n] 
+Apply anyway? [n] 
+Skipping patch.
+6 out of 6 hunks ignored -- saving rejects to file wpa_supplicant/defconfig.rej
+patching file wpa_supplicant/p2p_supplicant.c
+Reversed (or previously applied) patch detected!  Assume -R? [n] 
+Apply anyway? [n] 
+Skipping patch.
+1 out of 1 hunk ignored -- saving rejects to file wpa_supplicant/p2p_supplicant.c.rej
+/home/yerassyl
+Done installing Mininet-WiFi locally at /home/yerassyl/mininet-wifi
+
+===== STEP 6: Containernet =====
+Cloning Containernet repo into /home/yerassyl/containernet ...
+fatal: destination path '/home/yerassyl/containernet' already exists and is not an empty directory.
+Installing Containernet with Ansible ...
+
+PLAY [localhost] ***************************************************************
+
+TASK [Gathering Facts] *********************************************************
+[DEPRECATION WARNING]: Distribution ubuntu 22.04 on host localhost should use 
+/usr/bin/python3, but is using /usr/bin/python for backward compatibility with 
+prior Ansible releases. A future Ansible release will default to using the 
+discovered platform python for this host. See https://docs.ansible.com/ansible/
+2.10/reference_appendices/interpreter_discovery.html for more information. This
+ feature will be removed in version 2.12. Deprecation warnings can be disabled 
+by setting deprecation_warnings=False in ansible.cfg.
+ok: [localhost]
+
+TASK [updates apt] *************************************************************
+changed: [localhost]
+
+TASK [install basic packages] **************************************************
+ok: [localhost]
+
+TASK [Check if Docker-CE is installed] *****************************************
+ok: [localhost]
+
+TASK [Add Docker CE repository key] ********************************************
+skipping: [localhost]
+
+TASK [Check system architecture] ***********************************************
+skipping: [localhost]
+
+TASK [Check OS Codename] *******************************************************
+skipping: [localhost]
+
+TASK [Install Docker CE repository] ********************************************
+skipping: [localhost]
+
+TASK [install Docker CE] *******************************************************
+skipping: [localhost]
+
+TASK [find pip executable] *****************************************************
+changed: [localhost]
+
+TASK [build and install Containernet dependencies (using Mininet installer)] ***
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": "PYTHON=python3 containernet/util/install.sh -fnv", "delta": "0:00:00.707169", "end": "2025-04-04 22:20:14.120373", "msg": "non-zero return code", "rc": 128, "start": "2025-04-04 22:20:13.413204", "stderr": "fatal: destination path 'openflow' already exists and is not an empty directory.", "stderr_lines": ["fatal: destination path 'openflow' already exists and is not an empty directory."], "stdout": "Detected Linux distribution: Ubuntu 22.04 jammy amd64\nsys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)\nDetected Python (python3) version 3\nInstalling OpenFlow reference implementation...\nReading package lists...\nBuilding dependency tree...\nReading state information...\nautoconf is already the newest version (2.71-2).\nautomake is already the newest version (1:1.16.5-1.3).\ngcc is already the newest version (4:11.2.0-1ubuntu1).\nlibtool is already the newest version (2.4.6-15build2).\nmake is already the newest version (4.3-4.1build1).\n0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.\nReading package lists...\nBuilding dependency tree...\nReading state information...\nautotools-dev is already the newest version (20220109.1).\npkg-config is already the newest version (0.29.2-1ubuntu3).\ngit is already the newest version (1:2.34.1-1ubuntu1.12).\nlibc6-dev is already the newest version (2.35-0ubuntu3.9).\n0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.", "stdout_lines": ["Detected Linux distribution: Ubuntu 22.04 jammy amd64", "sys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)", "Detected Python (python3) version 3", "Installing OpenFlow reference implementation...", "Reading package lists...", "Building dependency tree...", "Reading state information...", "autoconf is already the newest version (2.71-2).", "automake is already the newest version (1:1.16.5-1.3).", "gcc is already the newest version (4:11.2.0-1ubuntu1).", "libtool is already the newest version (2.4.6-15build2).", "make is already the newest version (4.3-4.1build1).", "0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.", "Reading package lists...", "Building dependency tree...", "Reading state information...", "autotools-dev is already the newest version (20220109.1).", "pkg-config is already the newest version (0.29.2-1ubuntu3).", "git is already the newest version (1:2.34.1-1ubuntu1.12).", "libc6-dev is already the newest version (2.35-0ubuntu3.9).", "0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded."]}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=5    changed=2    unreachable=0    failed=1    skipped=5    rescued=0    ignored=0   
+
+/home/yerassyl
+Done installing Containernet locally at /home/yerassyl/containernet
+
+===== STEP 7: Ganache (via NPM) =====
+Installing Ganache globally with npm...
+npm ERR! code ETIMEDOUT
+npm ERR! syscall read
+npm ERR! errno ETIMEDOUT
+npm ERR! network read ETIMEDOUT
+npm ERR! network This is a problem related to network connectivity.
+npm ERR! network In most cases you are behind a proxy or have bad network settings.
+npm ERR! network 
+npm ERR! network If you are behind a proxy, please make sure that the
+npm ERR! network 'proxy' config is set properly.  See: 'npm help config'
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2025-04-04T17_20_14_329Z-debug-0.log
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'truffle@5.11.5',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/db-loader@0.2.36',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/debugger@12.1.5',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'mocha@10.1.0',
+npm WARN EBADENGINE   required: { node: '>= 14.0.0' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/abi-utils@1.0.3',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/code-utils@3.0.4',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/error@0.2.2',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/codec@0.17.3',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/source-map-utils@1.3.119',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@truffle/compile-common@0.9.8',
+npm WARN EBADENGINE   required: { node: '^16.20 || ^18.16 || >=20' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'got@12.1.0',
+npm WARN EBADENGINE   required: { node: '>=14.16' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@szmarczak/http-timer@5.0.1',
+npm WARN EBADENGINE   required: { node: '>=14.16' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@noble/hashes@1.7.1',
+npm WARN EBADENGINE   required: { node: '^14.21.3 || >=16' },
+npm WARN EBADENGINE   current: { node: 'v12.22.9', npm: '8.5.1' }
+npm WARN EBADENGINE }
+npm ERR! code ENOTEMPTY
+npm ERR! syscall rename
+npm ERR! path /usr/local/lib/node_modules/truffle
+npm ERR! dest /usr/local/lib/node_modules/.truffle-ojTgnptm
+npm ERR! errno -39
+npm ERR! ENOTEMPTY: directory not empty, rename '/usr/local/lib/node_modules/truffle' -> '/usr/local/lib/node_modules/.truffle-ojTgnptm'
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2025-04-04T17_20_41_367Z-debug-0.log
+Collecting web3
+  Downloading web3-7.10.0-py3-none-any.whl (1.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 540.8 kB/s eta 0:00:00
+Collecting eth-typing>=5.0.0
+  Downloading eth_typing-5.2.0-py3-none-any.whl (19 kB)
+Collecting eth-hash[pycryptodome]>=0.5.1
+  Downloading eth_hash-0.7.1-py3-none-any.whl (8.0 kB)
+Collecting typing-extensions>=4.0.1
+  Downloading typing_extensions-4.13.1-py3-none-any.whl (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.7/45.7 KB 630.4 kB/s eta 0:00:00
+Collecting pyunormalize>=15.0.0
+  Downloading pyunormalize-16.0.0-py3-none-any.whl (49 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.2/49.2 KB 645.4 kB/s eta 0:00:00
+Collecting pydantic>=2.4.0
+  Downloading pydantic-2.11.2-py3-none-any.whl (443 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 443.3/443.3 KB 507.0 kB/s eta 0:00:00
+Collecting eth-abi>=5.0.1
+  Downloading eth_abi-5.2.0-py3-none-any.whl (28 kB)
+Collecting eth-account>=0.13.1
+  Downloading eth_account-0.13.6-py3-none-any.whl (586 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 587.0/587.0 KB 274.2 kB/s eta 0:00:00
+Collecting aiohttp>=3.7.4.post0
+  Downloading aiohttp-3.11.16-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 142.2 kB/s eta 0:00:00
+Collecting hexbytes>=1.2.0
+  Downloading hexbytes-1.3.0-py3-none-any.whl (4.9 kB)
+Collecting types-requests>=2.0.0
+  Downloading types_requests-2.32.0.20250328-py3-none-any.whl (20 kB)
+Requirement already satisfied: requests>=2.23.0 in /usr/local/lib/python3.10/dist-packages (from web3) (2.32.3)
+Collecting eth-utils>=5.0.0
+  Downloading eth_utils-5.2.0-py3-none-any.whl (100 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.5/100.5 KB 134.9 kB/s eta 0:00:00
+Collecting websockets<16.0.0,>=10.0.0
+  Downloading websockets-15.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (181 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.6/181.6 KB 159.5 kB/s eta 0:00:00
+Collecting aiosignal>=1.1.2
+  Downloading aiosignal-1.3.2-py2.py3-none-any.whl (7.6 kB)
+Collecting propcache>=0.2.0
+  Downloading propcache-0.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (206 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 206.6/206.6 KB 110.4 kB/s eta 0:00:00
+Collecting aiohappyeyeballs>=2.3.0
+  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Requirement already satisfied: attrs>=17.3.0 in /usr/lib/python3/dist-packages (from aiohttp>=3.7.4.post0->web3) (21.2.0)
+Collecting yarl<2.0,>=1.17.0
+  Downloading yarl-1.18.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (319 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 319.7/319.7 KB 172.2 kB/s eta 0:00:00
+Collecting frozenlist>=1.1.1
+  Downloading frozenlist-1.5.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (241 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 241.9/241.9 KB 162.7 kB/s eta 0:00:00
+Collecting async-timeout<6.0,>=4.0
+  Downloading async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
+Collecting multidict<7.0,>=4.5
+  Downloading multidict-6.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (232 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 232.0/232.0 KB 186.9 kB/s eta 0:00:00
+Collecting parsimonious<0.11.0,>=0.10.0
+  Downloading parsimonious-0.10.0-py3-none-any.whl (48 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.4/48.4 KB 216.6 kB/s eta 0:00:00
+Collecting eth-rlp>=2.1.0
+  Downloading eth_rlp-2.2.0-py3-none-any.whl (4.4 kB)
+Collecting eth-keys>=0.4.0
+  Downloading eth_keys-0.6.1-py3-none-any.whl (21 kB)
+Collecting eth-keyfile<0.9.0,>=0.7.0
+  Downloading eth_keyfile-0.8.1-py3-none-any.whl (7.5 kB)
+Collecting bitarray>=2.4.0
+  Downloading bitarray-3.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (299 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 299.3/299.3 KB 187.3 kB/s eta 0:00:00
+Collecting ckzg>=2.0.0
+  Downloading ckzg-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (169 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 169.7/169.7 KB 219.2 kB/s eta 0:00:00
+Collecting rlp>=1.0.0
+  Downloading rlp-4.1.0-py3-none-any.whl (19 kB)
+Collecting pycryptodome<4,>=3.6.6
+  Downloading pycryptodome-3.22.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 243.2 kB/s eta 0:00:00
+Collecting cytoolz>=0.10.1
+  Downloading cytoolz-1.0.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 188.3 kB/s eta 0:00:00
+Collecting annotated-types>=0.6.0
+  Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Collecting typing-inspection>=0.4.0
+  Downloading typing_inspection-0.4.0-py3-none-any.whl (14 kB)
+Collecting pydantic-core==2.33.1
+  Downloading pydantic_core-2.33.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 182.8 kB/s eta 0:00:00
+Requirement already satisfied: idna<4,>=2.5 in /usr/lib/python3/dist-packages (from requests>=2.23.0->web3) (3.3)
+Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.23.0->web3) (3.4.1)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/lib/python3/dist-packages (from requests>=2.23.0->web3) (1.26.5)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from requests>=2.23.0->web3) (2020.6.20)
+Collecting urllib3<3,>=1.21.1
+  Downloading urllib3-2.3.0-py3-none-any.whl (128 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 128.4/128.4 KB 174.5 kB/s eta 0:00:00
+Collecting toolz>=0.8.0
+  Downloading toolz-1.0.0-py3-none-any.whl (56 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.4/56.4 KB 155.0 kB/s eta 0:00:00
+Collecting regex>=2022.3.15
+  Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (781 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 781.7/781.7 KB 184.0 kB/s eta 0:00:00
+Installing collected packages: ckzg, bitarray, websockets, urllib3, typing-extensions, toolz, regex, pyunormalize, pycryptodome, propcache, hexbytes, frozenlist, eth-hash, async-timeout, annotated-types, aiohappyeyeballs, typing-inspection, types-requests, pydantic-core, parsimonious, multidict, eth-typing, cytoolz, aiosignal, yarl, pydantic, eth-utils, rlp, eth-keys, eth-abi, aiohttp, eth-rlp, eth-keyfile, eth-account, web3
+  Attempting uninstall: urllib3
+    Found existing installation: urllib3 1.26.5
+    Not uninstalling urllib3 at /usr/lib/python3/dist-packages, outside environment /usr
+    Can't uninstall 'urllib3'. No files were found to uninstall.
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing-extensions 3.10.0.2
+    Not uninstalling typing-extensions at /usr/lib/python3/dist-packages, outside environment /usr
+    Can't uninstall 'typing-extensions'. No files were found to uninstall.
+Successfully installed aiohappyeyeballs-2.6.1 aiohttp-3.11.16 aiosignal-1.3.2 annotated-types-0.7.0 async-timeout-5.0.1 bitarray-3.3.1 ckzg-2.1.1 cytoolz-1.0.1 eth-abi-5.2.0 eth-account-0.13.6 eth-hash-0.7.1 eth-keyfile-0.8.1 eth-keys-0.6.1 eth-rlp-2.2.0 eth-typing-5.2.0 eth-utils-5.2.0 frozenlist-1.5.0 hexbytes-1.3.0 multidict-6.3.2 parsimonious-0.10.0 propcache-0.3.1 pycryptodome-3.22.0 pydantic-2.11.2 pydantic-core-2.33.1 pyunormalize-16.0.0 regex-2024.11.6 rlp-4.1.0 toolz-1.0.0 types-requests-2.32.0.20250328 typing-extensions-4.13.1 typing-inspection-0.4.0 urllib3-2.3.0 web3-7.10.0 websockets-15.0.1 yarl-1.18.3
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: web3 in ./.local/lib/python3.10/site-packages (7.9.0)
+Requirement already satisfied: eth-abi>=5.0.1 in ./.local/lib/python3.10/site-packages (from web3) (5.2.0)
+Requirement already satisfied: eth-account>=0.13.1 in ./.local/lib/python3.10/site-packages (from web3) (0.13.5)
+Requirement already satisfied: eth-hash>=0.5.1 in ./.local/lib/python3.10/site-packages (from eth-hash[pycryptodome]>=0.5.1->web3) (0.7.1)
+Requirement already satisfied: eth-typing>=5.0.0 in ./.local/lib/python3.10/site-packages (from web3) (5.2.0)
+Requirement already satisfied: eth-utils>=5.0.0 in ./.local/lib/python3.10/site-packages (from web3) (5.2.0)
+Requirement already satisfied: hexbytes>=1.2.0 in ./.local/lib/python3.10/site-packages (from web3) (1.3.0)
+Requirement already satisfied: aiohttp>=3.7.4.post0 in ./.local/lib/python3.10/site-packages (from web3) (3.11.14)
+Requirement already satisfied: pydantic>=2.4.0 in ./.local/lib/python3.10/site-packages (from web3) (2.10.6)
+Requirement already satisfied: requests>=2.23.0 in ./.local/lib/python3.10/site-packages (from web3) (2.32.3)
+Requirement already satisfied: typing-extensions>=4.0.1 in ./.local/lib/python3.10/site-packages (from web3) (4.12.2)
+Requirement already satisfied: types-requests>=2.0.0 in ./.local/lib/python3.10/site-packages (from web3) (2.32.0.20250306)
+Requirement already satisfied: websockets<14.0.0,>=10.0.0 in ./.local/lib/python3.10/site-packages (from web3) (13.1)
+Requirement already satisfied: pyunormalize>=15.0.0 in ./.local/lib/python3.10/site-packages (from web3) (16.0.0)
+Requirement already satisfied: aiohappyeyeballs>=2.3.0 in ./.local/lib/python3.10/site-packages (from aiohttp>=3.7.4.post0->web3) (2.6.1)
+Requirement already satisfied: aiosignal>=1.1.2 in ./.local/lib/python3.10/site-packages (from aiohttp>=3.7.4.post0->web3) (1.3.2)
+Requirement already satisfied: async-timeout<6.0,>=4.0 in ./.local/lib/python3.10/site-packages (from aiohttp>=3.7.4.post0->web3) (5.0.1)
+Requirement already satisfied: attrs>=17.3.0 in /usr/lib/python3/dist-packages (from aiohttp>=3.7.4.post0->web3) (21.2.0)
+Requirement already satisfied: frozenlist>=1.1.1 in ./.local/lib/python3.10/site-packages (from aiohttp>=3.7.4.post0->web3) (1.5.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in ./.local/lib/python3.10/site-packages (from aiohttp>=3.7.4.post0->web3) (6.2.0)
+Requirement already satisfied: propcache>=0.2.0 in ./.local/lib/python3.10/site-packages (from aiohttp>=3.7.4.post0->web3) (0.3.0)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in ./.local/lib/python3.10/site-packages (from aiohttp>=3.7.4.post0->web3) (1.18.3)
+Requirement already satisfied: parsimonious<0.11.0,>=0.10.0 in ./.local/lib/python3.10/site-packages (from eth-abi>=5.0.1->web3) (0.10.0)
+Requirement already satisfied: bitarray>=2.4.0 in ./.local/lib/python3.10/site-packages (from eth-account>=0.13.1->web3) (3.2.0)
+Requirement already satisfied: eth-keyfile<0.9.0,>=0.7.0 in ./.local/lib/python3.10/site-packages (from eth-account>=0.13.1->web3) (0.8.1)
+Requirement already satisfied: eth-keys>=0.4.0 in ./.local/lib/python3.10/site-packages (from eth-account>=0.13.1->web3) (0.6.1)
+Requirement already satisfied: eth-rlp>=2.1.0 in ./.local/lib/python3.10/site-packages (from eth-account>=0.13.1->web3) (2.2.0)
+Requirement already satisfied: rlp>=1.0.0 in ./.local/lib/python3.10/site-packages (from eth-account>=0.13.1->web3) (4.1.0)
+Requirement already satisfied: ckzg>=2.0.0 in ./.local/lib/python3.10/site-packages (from eth-account>=0.13.1->web3) (2.1.0)
+Requirement already satisfied: pycryptodome<4,>=3.6.6 in ./.local/lib/python3.10/site-packages (from eth-hash[pycryptodome]>=0.5.1->web3) (3.22.0)
+Requirement already satisfied: cytoolz>=0.10.1 in ./.local/lib/python3.10/site-packages (from eth-utils>=5.0.0->web3) (1.0.1)
+Requirement already satisfied: annotated-types>=0.6.0 in ./.local/lib/python3.10/site-packages (from pydantic>=2.4.0->web3) (0.7.0)
+Requirement already satisfied: pydantic-core==2.27.2 in ./.local/lib/python3.10/site-packages (from pydantic>=2.4.0->web3) (2.27.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in ./.local/lib/python3.10/site-packages (from requests>=2.23.0->web3) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in /usr/lib/python3/dist-packages (from requests>=2.23.0->web3) (3.3)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./.local/lib/python3.10/site-packages (from requests>=2.23.0->web3) (2.3.0)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from requests>=2.23.0->web3) (2020.6.20)
+Requirement already satisfied: toolz>=0.8.0 in ./.local/lib/python3.10/site-packages (from cytoolz>=0.10.1->eth-utils>=5.0.0->web3) (1.0.0)
+Requirement already satisfied: regex>=2022.3.15 in ./.local/lib/python3.10/site-packages (from parsimonious<0.11.0,>=0.10.0->eth-abi>=5.0.1->web3) (2024.11.6)
+Requirement already satisfied: networkx in /usr/local/lib/python3.10/dist-packages (3.4.2)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: networkx in ./.local/lib/python3.10/site-packages (3.4.2)
+
+===== Installation Completed at Жм 04 Сәу 2025 22:25:31 +05 =====
+All console output has been logged to install.log.
+Check for any [ERROR] lines in that file if something didn't succeed.
+===== Starting installation at Жм 04 Сәу 2025 22:27:12 +05 =====
+
+===== STEP 1: System Update and Dependencies =====
+Hit:1 https://deb.torproject.org/torproject.org noble InRelease
+Hit:2 https://download.docker.com/linux/ubuntu jammy InRelease
+Hit:3 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:4 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Get:5 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:6 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:7 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:8 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Fetched 2 957 B in 2s (1 839 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages have been kept back:
+  tor tor-geoipdb
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ansible is already the newest version (2.10.7+merged+base+2.10.8+dfsg-1).
+npm is already the newest version (8.5.1~ds-1).
+curl is already the newest version (7.81.0-1ubuntu1.20).
+git is already the newest version (1:2.34.1-1ubuntu1.12).
+nodejs is already the newest version (12.22.9~dfsg-1ubuntu3.6).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+
+===== STEP 2: Mininet Installation =====
+Mininet directory already exists. Skipping clone.
+Installing Mininet (full install) with '-q'...
+Detected Linux distribution: Ubuntu 22.04 jammy amd64
+sys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)
+Detected Python (python) version 3
+Installing all packages except for -eix (doxypy, ivs, nox-classic)...
+Install Mininet-compatible kernel if necessary
+Hit:1 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:3 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:4 https://download.docker.com/linux/ubuntu jammy InRelease
+Hit:5 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:6 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:7 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Hit:8 https://deb.torproject.org/torproject.org noble InRelease
+Fetched 2 957 B in 1s (2 674 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+linux-image-6.8.0-57-generic is already the newest version (6.8.0-57.59~22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+make is already the newest version (4.3-4.1build1).
+net-tools is already the newest version (1.60+git20181103.0eebece-1ubuntu5).
+psmisc is already the newest version (23.4-2build3).
+socat is already the newest version (1.7.4.1-3ubuntu4).
+telnet is already the newest version (0.17-44build1).
+help2man is already the newest version (1.49.1).
+iperf is already the newest version (2.1.5+dfsg1-1).
+pep8 is already the newest version (1.7.1-9ubuntu1).
+pyflakes3 is already the newest version (2.4.0-2).
+pylint is already the newest version (2.12.2-1).
+xterm is already the newest version (372-1ubuntu1).
+ethtool is already the newest version (1:5.16-1ubuntu0.1).
+python3-tk is already the newest version (3.10.8-1~22.04).
+ssh is already the newest version (1:8.9p1-3ubuntu0.11).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.5).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+Requirement already satisfied: pexpect in /usr/lib/python3/dist-packages (4.8.0)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Reading package lists...
+Building dependency tree...
+Reading state information...
+iproute2 is already the newest version (5.15.0-1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroup-tools is already the newest version (2.0-2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroupfs-mount is already the newest version (1.4).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet core
+/home/yerassyl/mininet /home/yerassyl/mininet
+install -D mnexec /usr/bin/mnexec
+install -D -t /usr/share/man/man1 mn.1 mnexec.1
+python -m pip uninstall -y mininet || true
+Found existing installation: mininet 2.3.1b4
+Uninstalling mininet-2.3.1b4:
+  Successfully uninstalled mininet-2.3.1b4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+python -m pip install .
+Processing /home/yerassyl/mininet
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages (from mininet==2.3.1b4) (59.6.0)
+Building wheels for collected packages: mininet
+  Building wheel for mininet (setup.py): started
+  Building wheel for mininet (setup.py): finished with status 'done'
+  Created wheel for mininet: filename=mininet-2.3.1b4-py3-none-any.whl size=160967 sha256=859b0e1ddcd1660de158268990083847d67bafd2061043e6f53e674bda939e25
+  Stored in directory: /tmp/pip-ephem-wheel-cache-pk90or2n/wheels/88/c5/35/bdfb835f1e500077d61a56171d9ff4e89e105ce5224131e8a2
+Successfully built mininet
+Installing collected packages: mininet
+Successfully installed mininet-2.3.1b4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+/home/yerassyl/mininet
+Installing OpenFlow reference implementation...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+autoconf is already the newest version (2.71-2).
+automake is already the newest version (1:1.16.5-1.3).
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+libtool is already the newest version (2.4.6-15build2).
+make is already the newest version (4.3-4.1build1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+autotools-dev is already the newest version (20220109.1).
+pkg-config is already the newest version (0.29.2-1ubuntu3).
+git is already the newest version (1:2.34.1-1ubuntu1.12).
+libc6-dev is already the newest version (2.35-0ubuntu3.9).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+fatal: destination path 'openflow' already exists and is not an empty directory.
+[ERROR] Mininet installation failed.
+
+===== STEP 3: Docker Installation =====
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package 'docker-engine' is not installed, so not removed
+Package 'docker' is not installed, so not removed
+Package 'containerd' is not installed, so not removed
+Package 'runc' is not installed, so not removed
+Package 'docker.io' is not installed, so not removed
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ca-certificates is already the newest version (20240203~22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Hit:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:2 http://kz.archive.ubuntu.com/ubuntu jammy InRelease
+Get:3 https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu jammy InRelease [2 957 B]
+Hit:4 https://download.docker.com/linux/ubuntu jammy InRelease
+Hit:5 https://deb.torproject.org/torproject.org noble InRelease
+Hit:6 http://kz.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:7 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease
+Hit:8 https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu jammy InRelease
+Fetched 2 957 B in 1s (2 400 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+containerd.io is already the newest version (1.7.27-1).
+docker-buildx-plugin is already the newest version (0.22.0-1~ubuntu.22.04~jammy).
+docker-ce-cli is already the newest version (5:28.0.4-1~ubuntu.22.04~jammy).
+docker-ce is already the newest version (5:28.0.4-1~ubuntu.22.04~jammy).
+docker-compose-plugin is already the newest version (2.34.0-1~ubuntu.22.04~jammy).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Testing Docker with 'hello-world' container...
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+===== STEP 4: Floodlight (Docker) =====
+Pulling Floodlight Docker image 'piyushk2001/floodlight-controller'...
+Using default tag: latest
+latest: Pulling from piyushk2001/floodlight-controller
+Digest: sha256:7b32fecd230b1d48b40a90f4ada5493c1a6ca4163b05ba1be6b15f467e702024
+Status: Image is up to date for piyushk2001/floodlight-controller:latest
+docker.io/piyushk2001/floodlight-controller:latest
+
+===== STEP 5: Mininet-WiFi =====
+Cloning Mininet-WiFi repo into /home/yerassyl/mininet-wifi ...
+fatal: destination path '/home/yerassyl/mininet-wifi' already exists and is not an empty directory.
+Installing Mininet-WiFi (sudo util/install.sh -Wlnfv) ...
+Detected Linux distribution: Ubuntu 22.04 jammy amd64
+Ubuntu
+sys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)
+Detected Python (python) version 3
+Installing Mininet dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version (4:11.2.0-1ubuntu1).
+make is already the newest version (4.3-4.1build1).
+net-tools is already the newest version (1.60+git20181103.0eebece-1ubuntu5).
+psmisc is already the newest version (23.4-2build3).
+python3-pexpect is already the newest version (4.8.0-2ubuntu1).
+socat is already the newest version (1.7.4.1-3ubuntu4).
+telnet is already the newest version (0.17-44build1).
+help2man is already the newest version (1.49.1).
+iperf is already the newest version (2.1.5+dfsg1-1).
+pep8 is already the newest version (1.7.1-9ubuntu1).
+pyflakes3 is already the newest version (2.4.0-2).
+pylint is already the newest version (2.12.2-1).
+xterm is already the newest version (372-1ubuntu1).
+ethtool is already the newest version (1:5.16-1ubuntu0.1).
+python3-tk is already the newest version (3.10.8-1~22.04).
+ssh is already the newest version (1:8.9p1-3ubuntu0.11).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.5).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+iproute2 is already the newest version (5.15.0-1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cgroup-tools is already the newest version (2.0-2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Mininet-WiFi dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libevent-dev is already the newest version (2.1.12-stable-1build3).
+libnl-3-dev is already the newest version (3.5.0-0.1).
+libnl-genl-3-dev is already the newest version (3.5.0-0.1).
+libnl-route-3-dev is already the newest version (3.5.0-0.1).
+make is already the newest version (4.3-4.1build1).
+patch is already the newest version (2.7.6-7build2).
+pkg-config is already the newest version (0.29.2-1ubuntu3).
+python3-psutil is already the newest version (5.9.0-1build1).
+wireless-tools is already the newest version (30~pre9-13.1ubuntu4).
+python3-matplotlib is already the newest version (3.5.1-2build1).
+libdbus-1-dev is already the newest version (1.12.20-2ubuntu4.1).
+libssl-dev is already the newest version (3.0.2-0ubuntu1.19).
+python3-numpy is already the newest version (1:1.21.5-1ubuntu22.04.1).
+rfkill is already the newest version (2.37.2-4ubuntu3.4).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+/home/yerassyl/mininet-wifi /home/yerassyl/mininet-wifi
+/home/yerassyl/mininet-wifi/hostap /home/yerassyl/mininet-wifi /home/yerassyl/mininet-wifi
+patching file hostapd/defconfig
+Reversed (or previously applied) patch detected!  Assume -R? [n] 
+Apply anyway? [n] 
+Skipping patch.
+9 out of 9 hunks ignored -- saving rejects to file hostapd/defconfig.rej
+patching file wpa_supplicant/defconfig
+Reversed (or previously applied) patch detected!  Assume -R? [n] 
+Apply anyway? [n] 
+Skipping patch.
+6 out of 6 hunks ignored -- saving rejects to file wpa_supplicant/defconfig.rej
+patching file wpa_supplicant/p2p_supplicant.c
+Reversed (or previously applied) patch detected!  Assume -R? [n] 
+Apply anyway? [n] 
+Skipping patch.
+1 out of 1 hunk ignored -- saving rejects to file wpa_supplicant/p2p_supplicant.c.rej
+Done installing Mininet-WiFi locally at /home/yerassyl/mininet-wifi
+
+===== STEP 6: Containernet =====
+Cloning Containernet repo into /home/yerassyl/containernet ...
+fatal: destination path '/home/yerassyl/containernet' already exists and is not an empty directory.
+Installing Containernet (sudo ansible-playbook -i 'localhost,' -c local install.yml) ...
+
+PLAY [localhost] ***************************************************************
+
+TASK [Gathering Facts] *********************************************************
+[DEPRECATION WARNING]: Distribution ubuntu 22.04 on host localhost should use 
+/usr/bin/python3, but is using /usr/bin/python for backward compatibility with 
+prior Ansible releases. A future Ansible release will default to using the 
+discovered platform python for this host. See https://docs.ansible.com/ansible/
+2.10/reference_appendices/interpreter_discovery.html for more information. This
+ feature will be removed in version 2.12. Deprecation warnings can be disabled 
+by setting deprecation_warnings=False in ansible.cfg.
+ok: [localhost]
+
+TASK [updates apt] *************************************************************
+changed: [localhost]
+
+TASK [install basic packages] **************************************************
+ok: [localhost]
+
+TASK [Check if Docker-CE is installed] *****************************************
+ok: [localhost]
+
+TASK [Add Docker CE repository key] ********************************************
+skipping: [localhost]
+
+TASK [Check system architecture] ***********************************************
+skipping: [localhost]
+
+TASK [Check OS Codename] *******************************************************
+skipping: [localhost]
+
+TASK [Install Docker CE repository] ********************************************
+skipping: [localhost]
+
+TASK [install Docker CE] *******************************************************
+skipping: [localhost]
+
+TASK [find pip executable] *****************************************************
+changed: [localhost]
+
+TASK [build and install Containernet dependencies (using Mininet installer)] ***
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": "PYTHON=python3 containernet/util/install.sh -fnv", "delta": "0:00:00.696297", "end": "2025-04-04 22:27:39.950590", "msg": "non-zero return code", "rc": 128, "start": "2025-04-04 22:27:39.254293", "stderr": "fatal: destination path 'openflow' already exists and is not an empty directory.", "stderr_lines": ["fatal: destination path 'openflow' already exists and is not an empty directory."], "stdout": "Detected Linux distribution: Ubuntu 22.04 jammy amd64\nsys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)\nDetected Python (python3) version 3\nInstalling OpenFlow reference implementation...\nReading package lists...\nBuilding dependency tree...\nReading state information...\nautoconf is already the newest version (2.71-2).\nautomake is already the newest version (1:1.16.5-1.3).\ngcc is already the newest version (4:11.2.0-1ubuntu1).\nlibtool is already the newest version (2.4.6-15build2).\nmake is already the newest version (4.3-4.1build1).\n0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.\nReading package lists...\nBuilding dependency tree...\nReading state information...\nautotools-dev is already the newest version (20220109.1).\npkg-config is already the newest version (0.29.2-1ubuntu3).\ngit is already the newest version (1:2.34.1-1ubuntu1.12).\nlibc6-dev is already the newest version (2.35-0ubuntu3.9).\n0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.", "stdout_lines": ["Detected Linux distribution: Ubuntu 22.04 jammy amd64", "sys.version_info(major=3, minor=10, micro=12, releaselevel='final', serial=0)", "Detected Python (python3) version 3", "Installing OpenFlow reference implementation...", "Reading package lists...", "Building dependency tree...", "Reading state information...", "autoconf is already the newest version (2.71-2).", "automake is already the newest version (1:1.16.5-1.3).", "gcc is already the newest version (4:11.2.0-1ubuntu1).", "libtool is already the newest version (2.4.6-15build2).", "make is already the newest version (4.3-4.1build1).", "0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.", "Reading package lists...", "Building dependency tree...", "Reading state information...", "autotools-dev is already the newest version (20220109.1).", "pkg-config is already the newest version (0.29.2-1ubuntu3).", "git is already the newest version (1:2.34.1-1ubuntu1.12).", "libc6-dev is already the newest version (2.35-0ubuntu3.9).", "0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded."]}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=5    changed=2    unreachable=0    failed=1    skipped=5    rescued=0    ignored=0   
+
+Done installing Containernet locally at /home/yerassyl/containernet
+
+===== STEP 7: Ganache (via NPM) =====
+Installing Ganache globally with npm...

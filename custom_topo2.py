@@ -15,14 +15,14 @@ def run_topology():
     )
 
     info("*** Creating 9 OVS switches for a 3×3 torus ***\n")
-    # We’ll store them in a 2D list for easy linking
-    # Each switch uses OpenFlow13
+    # 3×3 = 9 normal OVS switches
     switches = []
     for r in range(3):
         row = []
         for c in range(3):
             idx = r*3 + c + 1  # 1..9
             sw_name = f"s{idx}"
+            # Each switch uses OpenFlow13
             sw = net.addSwitch(sw_name, protocols='OpenFlow13')
             row.append(sw)
         switches.append(row)
@@ -45,7 +45,7 @@ def run_topology():
                 net.addLink(sw_curr, switches[0][c])
 
     info("*** Creating two Wi-Fi APs ***\n")
-    # We'll attach these APs to, say, s5 (center) and s9 (bottom-right corner)
+    # We’ll attach these APs to, say, s5 (center) and s9 (bottom-right corner)
     ap1 = net.addAccessPoint('ap1', ssid='ssid-foo', mode='g', channel='1',
                              position='10,10,0')
     ap2 = net.addAccessPoint('ap2', ssid='ssid-bar', mode='g', channel='6',
@@ -64,21 +64,27 @@ def run_topology():
     net.configureWifiNodes()
 
     info("*** Linking the APs to the torus ***\n")
+    # Connect ap1 to s5 (center, row=1 col=1)
     s5 = switches[1][1]
     net.addLink(ap1, s5)
+
+    # Connect ap2 to s9 (row=2 col=2)
     s9 = switches[2][2]
     net.addLink(ap2, s9)
 
     info("*** Creating a Docker-based host ***\n")
-    d1 = net.addHost('d1',
-                     dimage='ubuntu:trusty',
-                     docker_args={'cpus': '0.5'})
+    d1 = net.addHost(
+        'd1',
+        dimage='ubuntu:trusty',
+        docker_args={'cpus': '0.5'}
+    )
+    # Link that Docker host to s1 (top-left corner)
     net.addLink(d1, switches[0][0])
 
     info("*** Starting network ***\n")
     net.start()
 
-    # ** Print out the DPIDs of ap1 and ap2 **
+    # ** Print out DPIDs (decimal or hex) for ap1 and ap2:
     info(f"ap1 name={ap1.name}, dpid={ap1.dpid}\n")
     info(f"ap2 name={ap2.name}, dpid={ap2.dpid}\n")
 
