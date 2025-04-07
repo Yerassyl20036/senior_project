@@ -292,18 +292,18 @@ if __name__ == "__main__":
     - We know station IPs: 10.0.0.2 => "sta2"
     - We know Docker host IP: 10.0.0.4 => "d1"
     """
-    dpid_map = {
-    "10:00:00:00:00:00:00:01": "ap1",
-    "10:00:00:00:00:00:00:02": "ap2"
-    }
+    # dpid_map = {
+    # "10:00:00:00:00:00:00:01": "ap1",
+    # "10:00:00:00:00:00:00:02": "ap2"
+    # }
     
-    docker_hosts_map = {
-        "10.0.0.4": "d1"
-    }
+    # docker_hosts_map = {
+    #     "10.0.0.4": "d1"
+    # }
 
     fv = FloodlightVisualizer(
-        dpid_map=dpid_map,
-        docker_hosts_map=docker_hosts_map
+        # dpid_map=dpid_map,
+        # docker_hosts_map=docker_hosts_map
     )
     fv.build_topology()
 
