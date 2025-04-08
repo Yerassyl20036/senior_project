@@ -18,7 +18,6 @@ OUT_CSV = Path("wallets.csv")
 
 Account.enable_unaudited_hdwallet_features()
 
-
 def fetch_devices():
     try:
         r = requests.get(FLOODLIGHT_URL, timeout=5)
@@ -28,12 +27,11 @@ def fetch_devices():
         print(f"[ERROR] cannot fetch devices: {e}")
         return []
 
-
 def collect_hosts():
     """Return list of dicts: mac, ip, is_server (only hosts with IPv4)."""
-    data     = fetch_devices()
-    devices  = data.get("devices", data) if isinstance(data, dict) else data
-    hosts    = []
+    data = fetch_devices()
+    devices = data.get("devices", []) if isinstance(data, dict) else data
+    hosts = []
 
     for dev in devices:
         if not isinstance(dev, dict):
@@ -41,39 +39,30 @@ def collect_hosts():
 
         aps = dev.get("attachmentPoint", [])
         if not aps:
-            continue                                  # skip phantom rows
+            continue
 
-        ap0   = aps[0]
-        port  = ap0.get("port")
-        is_server = (port != 1)
-        if ap0.get("switch") is None and ap0.get("switchDPID") is None:
-            continue                                  # no switch info
+        ap0 = aps[0]
+        port = int(ap0.get("port", "1"))  # Safely default to 1 if no port found
+        is_server = (port != 1)  # True if port is not 1
 
-        ipv4  = dev.get("ipv4", [])
+        ipv4 = dev.get("ipv4", [])
         if not ipv4:
-            continue                                  # skip hosts w/o IPv4
+            continue
 
-        ip    = ipv4[0]
+        ip = ipv4[0]
+        mac = dev.get("mac", [])
+        mac = mac[0] if isinstance(mac, list) and mac else ""
 
-        mac   = dev.get("mac", [])
-        if isinstance(mac, list):
-            mac = mac[0] if mac else ""
-        mac = str(mac)
-
-        print(f"[INFO] {mac} {ip} port={port} switch={ap0.get('switch')}")
+        print(f"[DEBUG] Type of port: {type(port)}; Value of port: {port}")
+        print(f"[INFO] {mac} {ip} port={port} switch={ap0.get('switch')}, server={is_server}")
         hosts.append(dict(mac=mac, ip=ip, is_server=is_server))
 
-    # # guarantee at least one server
-    # if hosts and not any(h["is_server"] for h in hosts):
-    #     hosts[-1]["is_server"] = True
-
-    hosts.sort(key=lambda h: (h["ip"]))
+    hosts.sort(key=lambda h: h["ip"])
     return hosts
 
 def derive_wallet(idx):
     acct = Account.from_mnemonic(MNEMONIC, account_path=HD_PATH.format(idx))
     return acct.address, acct.key.hex()
-
 
 def main():
     hosts = collect_hosts()

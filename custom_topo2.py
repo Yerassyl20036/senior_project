@@ -78,14 +78,14 @@ def run_topology():
         dimage='ubuntu:trusty',
         docker_args={'cpus': '0.5'}
     )
-    d2 = net.addHost(
-        'd2',
-        dimage='ubuntu:trusty',
-        docker_args={'cpus': '0.5'}
-    )
+    # d2 = net.addHost(
+    #     'd2',
+    #     dimage='ubuntu:trusty',
+    #     docker_args={'cpus': '0.5'}
+    # )
     # Link that Docker host to s1 (top-left corner)
     net.addLink(d1, switches[0][0])
-    net.addLink(d2, switches[1][1])
+    # net.addLink(d2, switches[1][1])
 
     info("*** Starting network ***\n")
     net.start()
