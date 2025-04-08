@@ -6,7 +6,8 @@ mac80211_hwsim_mgmt/
 wmediumd/
 openflow/
 containernet/
-install.log
+install.log/
+wallets.csv
 
 # Or you can be more selective:
 # mininet-wifi/__pycache__/
