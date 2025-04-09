@@ -53,15 +53,14 @@ senior_project/
 │   ├── test/
 │   └── truffle-config.js
 ├── custom_topo.py
-├── custom_topo2.py
-├── visualize.py
-├── visualize2.py
+├── main.py
+├── balances.py
 ├── install.sh
 ├── install2.sh
 └── docker-compose.yml
  ```
 
- ## Running the Project
+## Running the Project
 ### 1. Start the Floodlight Controller
 ```bash
 sudo docker compose up
@@ -69,10 +68,15 @@ sudo docker compose up
 
 ### 2. Run Custom Network Topology
 ```bash
-sudo python custom_topo2.py
+sudo python custom_topo.py
  ```
 
-### 3. Visualize the Network Topology
+### 3. Visualize the Network Topology and simulate token transfer
 ```bash
-python visualize2.py
+python main.py
+ ```
+
+### 4. Check the tokens on each balance on ganache local blockchain
+```bash
+python balances.py
  ```
