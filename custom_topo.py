@@ -8,12 +8,6 @@ from mininet.node import RemoteController
 from containernet.node import Docker as DockerContainer  # or from containernet.mininet.node import Docker
 
 def run_topology():
-    """
-     - 3x3 torus of OVS switches (9 switches)
-     - 3 Wi-Fi access points
-     - 6 or more stations (regular hosts)
-     - 2 Docker hosts
-    """
     net = Mininet_wifi(controller=RemoteController,
                        link=wmediumd,
                        wmediumd_mode=interference)
@@ -61,7 +55,6 @@ def run_topology():
         sta_list.append(sta)
 
     info("\n*** Creating 2 Docker-based hosts ***\n")
-    # Make sure you have a valid Docker image (dimage='ubuntu:trusty' or custom)
     d1 = net.addHost('d1',
                        dimage='ubuntu:trusty',
                        docker_args={'cpus': '0.5'})
@@ -77,7 +70,6 @@ def run_topology():
     net.configureWifiNodes()
 
     info("*** Linking APs to some switches ***\n")
-    # e.g., link ap1-> s5, ap2-> s6, ap3-> s9
     s5 = switches[1][1]  # middle
     s6 = switches[1][2]
     s9 = switches[2][2]

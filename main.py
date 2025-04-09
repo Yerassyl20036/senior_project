@@ -326,7 +326,7 @@ class FloodlightVisualizer:
 
 #   IMPORTANT UPDATE MNEMONIC EACH TIME WHEN NEW GANACHE INSTANCE IS LAUCHED
 def fetch_wallet_info(floodlight_device_url="http://127.0.0.1:8080/wm/device/",
-                      mnemonic="unusual gap loyal burger moment chuckle music allow drill remind stereo popular",
+                      mnemonic="wrist fine orphan mansion idea fee wild private maximum farm catch diary",
                       out_csv="wallets.csv"):
     try:
         r = requests.get(floodlight_device_url, timeout=5)

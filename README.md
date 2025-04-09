@@ -71,12 +71,18 @@ sudo docker compose up
 sudo python custom_topo.py
  ```
 
-### 3. Visualize the Network Topology and simulate token transfer
+### 3. Run Local Blockchain
+```bash
+cd sdn-blockchain
+ganache
+ ```
+
+### 4. Visualize the Network Topology and simulate token transfer
 ```bash
 python main.py
  ```
 
-### 4. Check the tokens on each balance on ganache local blockchain
+### 5. Check the tokens on each balance on ganache local blockchain
 ```bash
 python balances.py
  ```
