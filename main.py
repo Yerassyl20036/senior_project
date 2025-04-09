@@ -323,10 +323,52 @@ class FloodlightVisualizer:
         plt.axis("off")
         plt.legend()
         plt.show()
+        
+    def simulate_request(self, src_ip):
+        ip_to_node = {}
+        docker_nodes = []
+        for n, d in self.topology.nodes(data=True):
+            ip_attr = d.get("ip")
+            if ip_attr:
+                ip_to_node[ip_attr] = n
+            if d.get("type") == "dockerhost":
+                docker_nodes.append(n)
+    
+        if src_ip not in ip_to_node:
+            print(f"[Error] No node in the graph has IP {src_ip}")
+            return None, None, None
+        if not docker_nodes:
+            print("[Error] No docker hosts present in the topology.")
+            return None, None, None
+    
+        src_node = ip_to_node[src_ip]
+    
+        best_path = None
+        best_len  = float("inf")
+        best_docker_node = None
+    
+        for dnode in docker_nodes:
+            try:
+                p = nx.shortest_path(self.topology, src_node, dnode)
+            except nx.NetworkXNoPath:
+                continue
+            if len(p) < best_len:           # strictly shorter
+                best_len = len(p)
+                best_path = p
+                best_docker_node = dnode
+    
+        if best_path is None:
+            print(f"[Error] No path from {src_ip} to any docker host.")
+            return None, None, None
+    
+        docker_ip = self.topology.nodes[best_docker_node].get("ip")
+        hop_cost  = len(best_path) - 1          # edges, not vertices
+        return docker_ip, best_path, hop_cost
+
 
 #   IMPORTANT UPDATE MNEMONIC EACH TIME WHEN NEW GANACHE INSTANCE IS LAUCHED
 def fetch_wallet_info(floodlight_device_url="http://127.0.0.1:8080/wm/device/",
-                      mnemonic="wrist fine orphan mansion idea fee wild private maximum farm catch diary",
+                      mnemonic="write tonight orient add ranch copper tree cute need latin rebel assume",
                       out_csv="wallets.csv"):
     try:
         r = requests.get(floodlight_device_url, timeout=5)
@@ -493,11 +535,16 @@ def find_shortest_route(net, src_ip, dst_ip):
         info("[ERROR] No path found.\n")
         return None
 
-
 if __name__ == "__main__":
     fv = FloodlightVisualizer(
     )
     fv.build_topology()
     fv.draw_topology()
     fetch_wallet_info()
-    do_token_transfer("10.0.0.1", "10.0.0.2", 100)    
+    docker_ip, path, cost = fv.simulate_request("10.0.0.1")
+    if docker_ip:
+        print("Nearest docker host:", docker_ip)
+        print("Path :", " → ".join(path))
+        print("Cost :", cost, "hops")
+
+        do_token_transfer("10.0.0.1", docker_ip, cost)
