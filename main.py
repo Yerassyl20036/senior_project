@@ -1,13 +1,14 @@
-from mininet.log import info
-import networkx as nx
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
-import requests
-import csv
-from eth_account import Account
-from web3 import Web3
 import os
+import random
+import requests
+import matplotlib
+import networkx as nx
+from web3 import Web3
+from mininet.log import info
+import csv, datetime, pathlib
+import matplotlib.pyplot as plt
+from eth_account import Account
+matplotlib.use('TkAgg')
 
 class FloodlightVisualizer:
     def __init__(
@@ -324,6 +325,47 @@ class FloodlightVisualizer:
         plt.legend()
         plt.show()
         
+    # def simulate_request(self, src_ip):
+    #     ip_to_node = {}
+    #     docker_nodes = []
+    #     for n, d in self.topology.nodes(data=True):
+    #         ip_attr = d.get("ip")
+    #         if ip_attr:
+    #             ip_to_node[ip_attr] = n
+    #         if d.get("type") == "dockerhost":
+    #             docker_nodes.append(n)
+    
+    #     if src_ip not in ip_to_node:
+    #         print(f"[Error] No node in the graph has IP {src_ip}")
+    #         return None, None, None
+    #     if not docker_nodes:
+    #         print("[Error] No docker hosts present in the topology.")
+    #         return None, None, None
+    
+    #     src_node = ip_to_node[src_ip]
+    
+    #     best_path = None
+    #     best_len  = float("inf")
+    #     best_docker_node = None
+    
+    #     for dnode in docker_nodes:
+    #         try:
+    #             p = nx.shortest_path(self.topology, src_node, dnode)
+    #         except nx.NetworkXNoPath:
+    #             continue
+    #         if len(p) < best_len:           # strictly shorter
+    #             best_len = len(p)
+    #             best_path = p
+    #             best_docker_node = dnode
+    
+    #     if best_path is None:
+    #         print(f"[Error] No path from {src_ip} to any docker host.")
+    #         return None, None, None
+    
+    #     docker_ip = self.topology.nodes[best_docker_node].get("ip")
+    #     hop_cost  = (len(best_path) - 1 ) * 10         # edges, not vertices
+    #     return docker_ip, best_path, hop_cost
+    
     def simulate_request(self, src_ip):
         ip_to_node = {}
         docker_nodes = []
@@ -344,31 +386,52 @@ class FloodlightVisualizer:
         src_node = ip_to_node[src_ip]
     
         best_path = None
-        best_len  = float("inf")
-        best_docker_node = None
-    
+        best_len = None
+        candidates = []          # docker nodes that are equally‐near
+
         for dnode in docker_nodes:
             try:
                 p = nx.shortest_path(self.topology, src_node, dnode)
             except nx.NetworkXNoPath:
                 continue
-            if len(p) < best_len:           # strictly shorter
-                best_len = len(p)
-                best_path = p
-                best_docker_node = dnode
-    
-        if best_path is None:
+            L = len(p)
+            if best_len is None or L < best_len:
+                best_len = L
+                candidates = [(dnode, p)]
+            elif L == best_len:
+                candidates.append((dnode, p))
+
+        if not candidates:
             print(f"[Error] No path from {src_ip} to any docker host.")
             return None, None, None
-    
-        docker_ip = self.topology.nodes[best_docker_node].get("ip")
-        hop_cost  = len(best_path) - 1          # edges, not vertices
-        return docker_ip, best_path, hop_cost
 
+        dnode, best_path = random.choice(candidates)   # <- NEW
+        docker_ip = self.topology.nodes[dnode]["ip"]
+        hop_cost  = (len(best_path) - 1) * 10
+        return docker_ip, best_path, hop_cost
+        
+class TxLogger:
+    def __init__(self, logfile="tx_log.csv"):
+        self.path = pathlib.Path(logfile)
+        if not self.path.exists():
+            with self.path.open("w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow([
+                    "event_id", 
+                    "ts","src_ip","dst_ip",
+                    "hop_cost","req_cost","total_eth",
+                    "src_bal_before","src_bal_after",
+                    "dst_bal_before","dst_bal_after",
+                    "tx_hash"
+                ])
+
+    def write(self, row):
+        with self.path.open("a", newline="") as f:
+            csv.writer(f).writerow(row)
 
 #   IMPORTANT UPDATE MNEMONIC EACH TIME WHEN NEW GANACHE INSTANCE IS LAUCHED
 def fetch_wallet_info(floodlight_device_url="http://127.0.0.1:8080/wm/device/",
-                      mnemonic="write tonight orient add ranch copper tree cute need latin rebel assume",
+                      mnemonic="quantum crack attitude guess stand tide crazy onion fabric plug wet enforce",
                       out_csv="wallets.csv"):
     try:
         r = requests.get(floodlight_device_url, timeout=5)
@@ -434,64 +497,81 @@ def fetch_wallet_info(floodlight_device_url="http://127.0.0.1:8080/wm/device/",
     else:
         info("[WARNING] No hosts to write into wallets.csv\n")
 
-def do_token_transfer(src_id, dst_id, amount,
+def do_token_transfer(src_id, dst_id,
+                      hop_cost, req_cost,
                       wallets_csv="wallets.csv",
-                      ganache_url="http://127.0.0.1:8545"):
-    wallet_map = []
-    if not os.path.exists(wallets_csv):
-        info(f"[ERROR] {wallets_csv} not found. Please run fetch_wallet_info first.\n")
-        return
-    with open(wallets_csv, "r") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            wallet_map.append(row)
+                      ganache_url="http://127.0.0.1:8545",
+                      logger=None, cycle = 0):         
+    
+    total_eth = hop_cost + req_cost
 
-    def find_wallet(identifier):
-        for w in wallet_map:
-            if w["ip"] == identifier or w["mac"] == identifier:
+    if not os.path.exists(wallets_csv):
+        info("[ERROR] wallets.csv missing\n")
+        return False, ""
+
+    with open(wallets_csv, newline="") as f:
+        wallets = list(csv.DictReader(f))
+
+    def w_by_ip(ip):
+        for w in wallets:
+            if w["ip"] == ip:
                 return w
         return None
 
-    src_wallet = find_wallet(src_id)
-    dst_wallet = find_wallet(dst_id)
-    
-    if not src_wallet:
-        info(f"[ERROR] No wallet found for src {src_id}\n")
-        return
-    if not dst_wallet:
-        info(f"[ERROR] No wallet found for dst {dst_id}\n")
-        return
+    src_w, dst_w = w_by_ip(src_id), w_by_ip(dst_id)
+    if not src_w or not dst_w:
+        info("[WARN] wallet not found (src=%s dst=%s)\n" % (src_id, dst_id))
+        return False, ""
 
-    info(f"\n[INFO] Source wallet: {src_wallet}\n")
-    info(f"[INFO] Destination wallet: {dst_wallet}\n")
+    w3 = Web3(Web3.HTTPProvider(ganache_url))
+    if not w3.is_connected():   
+        info("[ERROR] Ganache offline\n")
+        return False, ""
 
-    web3 = Web3(Web3.HTTPProvider(ganache_url))
-    if not web3.is_connected():
-        info("[ERROR] Cannot connect to Ganache.\n")
-        return
+    bal_src_before = float(w3.from_wei(w3.eth.get_balance(src_w["address"]), "ether"))
+    bal_dst_before = float(w3.from_wei(w3.eth.get_balance(dst_w["address"]), "ether"))
 
-    account_1 = src_wallet["address"]
-    account_2 = dst_wallet["address"]
-    private_key_1 = src_wallet["privkey"]
-
-    amount_wei = web3.to_wei(amount, 'ether')
-
-    nonce = web3.eth.get_transaction_count(account_1)
+    if bal_src_before < total_eth:
+        info(f"[SKIP] {src_id} lacks funds ({bal_src_before} < {total_eth})\n")
+        if logger:
+            logger.write([
+                cycle,
+                datetime.datetime.utcnow().isoformat(),
+                src_id, dst_id,
+                hop_cost, req_cost, total_eth,
+                bal_src_before, bal_src_before,
+                bal_dst_before, bal_dst_before,
+                ""
+            ])
+        return False, ""
 
     tx = {
-        'nonce': nonce,
-        'to': account_2,
-        'value': amount_wei,
-        'gas': 2000000,
-        'gasPrice': web3.to_wei('50', 'gwei'),
+        "nonce": w3.eth.get_transaction_count(src_w["address"]),
+        "to":    dst_w["address"],
+        "value": w3.to_wei(total_eth, "ether"),
+        "gas":   21000,
+        "gasPrice": w3.to_wei("1", "gwei"),
     }
+    signed = w3.eth.account.sign_transaction(tx, src_w["privkey"])
+    tx_hash = w3.eth.send_raw_transaction(signed.raw_transaction)
+    w3.eth.wait_for_transaction_receipt(tx_hash)
 
-    signed_tx = web3.eth.account.sign_transaction(tx, private_key_1)
-    tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
-    tx_hash_hex = web3.to_hex(tx_hash)
-    info(f"[INFO] Transaction sent, hash = {tx_hash_hex}\n")
-    receipt = web3.eth.wait_for_transaction_receipt(tx_hash)
-    info(f"[INFO] Transaction mined in block {receipt.blockNumber}\n")
+    bal_src_after = float(w3.from_wei(w3.eth.get_balance(src_w["address"]), "ether"))
+    bal_dst_after = float(w3.from_wei(w3.eth.get_balance(dst_w["address"]), "ether"))
+
+    info(f"[TX] {src_id}→{dst_id}  {total_eth} ETH  hash={w3.to_hex(tx_hash)}\n")
+
+    if logger:
+        logger.write([
+            cycle,
+            datetime.datetime.utcnow().isoformat(),
+            src_id, dst_id,
+            hop_cost, req_cost, total_eth,
+            bal_src_before, bal_src_after,
+            bal_dst_before, bal_dst_after,
+            w3.to_hex(tx_hash)
+        ])
+    return True, w3.to_hex(tx_hash)
 
 def find_shortest_route(net, src_ip, dst_ip):
     node_ip_map = {}
@@ -534,17 +614,113 @@ def find_shortest_route(net, src_ip, dst_ip):
     except nx.NetworkXNoPath:
         info("[ERROR] No path found.\n")
         return None
+    
+def run_bulk_simulation(fv,
+                        req_min=1, req_max=100,
+                        wallets_csv="wallets.csv"):
+    host_ips = []
+    for n, d in fv.topology.nodes(data=True):
+        if d.get("type") in ("host", "station"):
+            if d.get("ip"):
+                host_ips.append(d["ip"])
+    print(f"Found {len(host_ips)} host IPs in the topology.")
+    
+    random.shuffle(host_ips)
+
+    for ip in host_ips:
+        docker_ip, path, hop_cost = fv.simulate_request(ip)
+        if not docker_ip:
+            continue
+
+        req_cost = random.randint(req_min, req_max)   # ETH
+        success  = do_token_transfer(ip, docker_ip,
+                                     hop_cost, req_cost,
+                                     wallets_csv=wallets_csv)
+        if success:
+            info(f"[OK ] {ip} paid {hop_cost}+{req_cost} ETH "
+                 f"to {docker_ip}  via {len(path)-1} hops\n")
+            
+def _wallet_by_ip(ip, wallets, w3):
+    for row in wallets:
+        if row["ip"] == ip:
+            bal = w3.from_wei(w3.eth.get_balance(row["address"]), "ether")
+            return row, float(bal)
+    return None, 0.0
+
+def run_bulk_simulation_loop(fv,
+                             req_min=1, req_max=100,
+                             wallets_csv="wallets.csv",
+                             ganache_url="http://127.0.0.1:8545",
+                             logger=None):
+    
+    if logger is None:
+        info("[ERROR] run_bulk_simulation_loop needs a TxLogger instance\n")
+        return
+    
+    # load wallets once
+    if not os.path.exists(wallets_csv):
+        info("[ERROR] wallets.csv not found.\n")
+        return
+    with open(wallets_csv, newline="") as f:
+        wallets = list(csv.DictReader(f))
+
+    w3 = Web3(Web3.HTTPProvider(ganache_url))
+    if not w3.is_connected():
+        info("[ERROR] cannot reach Ganache RPC.\n")
+        return
+
+    # gather ordinary‑host IPs
+    host_ips = [d["ip"] for n, d in fv.topology.nodes(data=True)
+                if d.get("type") in ("host", "station") and d.get("ip")]
+
+    cycle = 0
+    while True:
+        cycle += 1
+        any_tx = False
+
+        random.shuffle(host_ips)
+        for ip in host_ips:
+            wallet, bal = _wallet_by_ip(ip, wallets, w3)
+            if bal <= 0:
+                continue   # broke
+
+            docker_ip, path, hop_cost = fv.simulate_request(ip)
+            if not docker_ip:
+                continue
+
+            # choose request cost, but cap to available balance
+            max_affordable = max(0, int(bal - hop_cost))
+            if max_affordable == 0:
+                continue
+
+            req_cost = random.randint(req_min, min(req_max, max_affordable))
+            ok = do_token_transfer(ip, docker_ip,
+                       hop_cost, req_cost,
+                       wallets_csv=wallets_csv,
+                       ganache_url=ganache_url,
+                       logger=logger,
+                       cycle = cycle)          
+            if ok:
+                any_tx = True
+
+        # stop when no transfer succeeded in this sweep
+        if not any_tx:
+            info(f"[DONE] all ordinary hosts are out of funds after {cycle} cycles.\n")
+            break
+
 
 if __name__ == "__main__":
     fv = FloodlightVisualizer(
     )
     fv.build_topology()
-    fv.draw_topology()
+    # fv.draw_topology()
     fetch_wallet_info()
-    docker_ip, path, cost = fv.simulate_request("10.0.0.1")
-    if docker_ip:
-        print("Nearest docker host:", docker_ip)
-        print("Path :", " → ".join(path))
-        print("Cost :", cost, "hops")
+    # docker_ip, path, cost = fv.simulate_request("10.0.0.1")
+    # if docker_ip:
+    #     print("Nearest docker host:", docker_ip)
+    #     print("Path :", " → ".join(path))
+    #     print("Cost :", cost, "hops")
 
-        do_token_transfer("10.0.0.1", docker_ip, cost)
+    #     do_token_transfer("10.0.0.1", docker_ip, cost)
+    logger = TxLogger("tx_log.csv")   # initialise CSV log
+    run_bulk_simulation_loop(fv, logger=logger)
