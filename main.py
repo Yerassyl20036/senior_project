@@ -17,7 +17,7 @@ class FloodlightVisualizer:
         links_url="http://localhost:8080/wm/topology/links/json",
         dpid_map=None,
         stations_map=None,
-        docker_hosts_map=None
+        docker_hosts_map=None,
     ):
         """
         dpid_map: mapping from DPIDs -> label (e.g. {"1000000000000001": "ap1"})
@@ -31,6 +31,7 @@ class FloodlightVisualizer:
         self.dpid_map   = dpid_map if dpid_map else {}
         self.stations_map = stations_map if stations_map else {}
         self.docker_hosts_map = docker_hosts_map if docker_hosts_map else {}
+        self.docker_usage_count = {}  # Tracks how many times each Docker host is used
 
     def fetch_json(self, url):
         """ Safely GET JSON from Floodlight, with error handling """
@@ -366,6 +367,49 @@ class FloodlightVisualizer:
     #     hop_cost  = (len(best_path) - 1 ) * 10         # edges, not vertices
     #     return docker_ip, best_path, hop_cost
     
+    # def simulate_request(self, src_ip):
+    #     ip_to_node = {}
+    #     docker_nodes = []
+    #     for n, d in self.topology.nodes(data=True):
+    #         ip_attr = d.get("ip")
+    #         if ip_attr:
+    #             ip_to_node[ip_attr] = n
+    #         if d.get("type") == "dockerhost":
+    #             docker_nodes.append(n)
+    
+    #     if src_ip not in ip_to_node:
+    #         print(f"[Error] No node in the graph has IP {src_ip}")
+    #         return None, None, None
+    #     if not docker_nodes:
+    #         print("[Error] No docker hosts present in the topology.")
+    #         return None, None, None
+    
+    #     src_node = ip_to_node[src_ip]
+    
+    #     best_path = None
+    #     best_len = None
+    #     candidates = []          # docker nodes that are equally‐near
+
+    #     for dnode in docker_nodes:
+    #         try:
+    #             p = nx.shortest_path(self.topology, src_node, dnode)
+    #         except nx.NetworkXNoPath:
+    #             continue
+    #         L = len(p)
+    #         if best_len is None or L < best_len:
+    #             best_len = L
+    #             candidates = [(dnode, p)]
+    #         elif L == best_len:
+    #             candidates.append((dnode, p))
+
+    #     if not candidates:
+    #         print(f"[Error] No path from {src_ip} to any docker host.")
+    #         return None, None, None
+
+    #     dnode, best_path = random.choice(candidates)   # <- NEW
+    #     docker_ip = self.topology.nodes[dnode]["ip"]
+    #     hop_cost  = (len(best_path) - 1) * 10
+    #     return docker_ip, best_path, hop_cost
     def simulate_request(self, src_ip):
         ip_to_node = {}
         docker_nodes = []
@@ -375,39 +419,32 @@ class FloodlightVisualizer:
                 ip_to_node[ip_attr] = n
             if d.get("type") == "dockerhost":
                 docker_nodes.append(n)
-    
+                if n not in self.docker_usage_count:
+                    self.docker_usage_count[n] = 0  # Initialize count for each Docker host
+
         if src_ip not in ip_to_node:
             print(f"[Error] No node in the graph has IP {src_ip}")
             return None, None, None
         if not docker_nodes:
             print("[Error] No docker hosts present in the topology.")
             return None, None, None
-    
+
         src_node = ip_to_node[src_ip]
-    
-        best_path = None
-        best_len = None
-        candidates = []          # docker nodes that are equally‐near
+        paths = [(dnode, nx.shortest_path(self.topology, src_node, dnode)) 
+                 for dnode in docker_nodes if nx.has_path(self.topology, src_node, dnode)]
 
-        for dnode in docker_nodes:
-            try:
-                p = nx.shortest_path(self.topology, src_node, dnode)
-            except nx.NetworkXNoPath:
-                continue
-            L = len(p)
-            if best_len is None or L < best_len:
-                best_len = L
-                candidates = [(dnode, p)]
-            elif L == best_len:
-                candidates.append((dnode, p))
-
-        if not candidates:
+        if not paths:
             print(f"[Error] No path from {src_ip} to any docker host.")
             return None, None, None
 
-        dnode, best_path = random.choice(candidates)   # <- NEW
+        # Select the Docker host with the least usage count
+        dnode, best_path = min(paths, key=lambda x: self.docker_usage_count[x[0]])
         docker_ip = self.topology.nodes[dnode]["ip"]
-        hop_cost  = (len(best_path) - 1) * 10
+        hop_cost = (len(best_path) - 1) * 3
+
+        # Update the usage count
+        self.docker_usage_count[dnode] += 1
+
         return docker_ip, best_path, hop_cost
         
 class TxLogger:
@@ -431,7 +468,7 @@ class TxLogger:
 
 #   IMPORTANT UPDATE MNEMONIC EACH TIME WHEN NEW GANACHE INSTANCE IS LAUCHED
 def fetch_wallet_info(floodlight_device_url="http://127.0.0.1:8080/wm/device/",
-                      mnemonic="quantum crack attitude guess stand tide crazy onion fabric plug wet enforce",
+                      mnemonic="ready minute federal engage joke chunk cousin duty cousin crazy bread always",
                       out_csv="wallets.csv"):
     try:
         r = requests.get(floodlight_device_url, timeout=5)
@@ -616,7 +653,7 @@ def find_shortest_route(net, src_ip, dst_ip):
         return None
     
 def run_bulk_simulation(fv,
-                        req_min=1, req_max=100,
+                        req_min=1, req_max=30,
                         wallets_csv="wallets.csv"):
     host_ips = []
     for n, d in fv.topology.nodes(data=True):
@@ -648,7 +685,7 @@ def _wallet_by_ip(ip, wallets, w3):
     return None, 0.0
 
 def run_bulk_simulation_loop(fv,
-                             req_min=1, req_max=100,
+                             req_min=1, req_max=30,
                              wallets_csv="wallets.csv",
                              ganache_url="http://127.0.0.1:8545",
                              logger=None):
