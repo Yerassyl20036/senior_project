@@ -34,7 +34,7 @@ senior_project/
 ## Network Topology
 The network consists of a 3x3 torus of switches, with WiFi access points and Docker hosts strategically placed for optimal coverage and resource distribution.
 
-![Network Topology](images/topology.png)
+![Network Topology](images/custom_topo.png)
 
 ## Token Balance Analysis
 The graphs demonstrate the token-based resource management in action:
