@@ -8,6 +8,51 @@ This project implements a token-based resource management system for IoT Edge Ne
 - Git
 - Python 3.x
 
+## Project Structure
+```plaintext
+senior_project/
+├── images/                      # Visualization outputs
+├── sdn-blockchain/              # Smart contract and blockchain code
+│   ├── contracts/              # Solidity smart contracts
+│   ├── migrations/             # Truffle migration scripts
+│   └── truffle-config.js       # Truffle configuration
+├── custom_topo.py              # Custom network topology definition
+├── main.py                     # Main SDN controller and token logic
+├── plot_balances.py           # Token balance visualization
+├── stats.py                   # Request statistics tracking
+├── balances.py               # Balance monitoring script
+└── docker-compose.yml        # Docker services configuration
+```
+
+## Key Components
+### Python Scripts
+- custom_topo.py : Defines a custom network topology with 9 OVS switches in a 3x3 torus configuration, 3 WiFi access points, 6 IoT stations, and 2 Docker-based hosts
+- main.py : Implements the core SDN controller logic, token management, and request routing
+- plot_balances.py : Generates visualizations of token balances over time
+- stats.py : Tracks and visualizes request statistics
+- balances.py : Monitors and reports token balances on the blockchain
+## Network Topology
+The network consists of a 3x3 torus of switches, with WiFi access points and Docker hosts strategically placed for optimal coverage and resource distribution.
+
+![Network Topology](images/topology.png)
+
+## Token Balance Analysis
+The graphs demonstrate the token-based resource management in action:
+
+- As IoT devices make requests, their token balances decrease
+- Docker hosts accumulate tokens as they process requests
+- This mechanism helps maintain fair resource allocation and prevents overutilization
+
+![Token Balances](images/balances_vs_tasks.png)
+![Docker Host Balances](images/docker_balances_vs_tasks.png)
+
+## Request Management
+The request counter visualization shows:
+
+- Total number of requests over time
+- Number of successful transfers using SDBlockEdge
+- As IoT devices exhaust their tokens, abnormal requests are automatically rejected
+
 ## Installation
 
 ### Step 1: Prepare Installation Scripts
